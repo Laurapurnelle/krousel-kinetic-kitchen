@@ -59,6 +59,7 @@ function getResult(selections: Record<number, string>): typeof menuResults.defau
 }
 
 const TraiteurQuiz = () => {
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(0);
   const [selections, setSelections] = useState<Record<number, string>>({});
   const [showResult, setShowResult] = useState(false);
