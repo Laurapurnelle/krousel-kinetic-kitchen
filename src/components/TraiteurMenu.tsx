@@ -11,6 +11,12 @@ import saladeImg from "@/assets/traiteur-salade-fraiche.jpg";
 import mousseImg from "@/assets/traiteur-mousse-chocolat.jpg";
 import verrinesImg from "@/assets/traiteur-verrines.jpg";
 import buffetImg from "@/assets/traiteur-buffet-mariage.jpg";
+import tatakiImg from "@/assets/traiteur-tataki-thon.jpg";
+import foieGrasImg from "@/assets/traiteur-foie-gras.jpg";
+import filetBarImg from "@/assets/traiteur-filet-bar.jpg";
+import risottoImg from "@/assets/traiteur-risotto-truffe.jpg";
+import domeImg from "@/assets/traiteur-dome-chocolat.jpg";
+import pannaCottaImg from "@/assets/traiteur-panna-cotta.jpg";
 
 interface MenuItem {
   name: string;

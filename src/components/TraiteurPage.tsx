@@ -28,8 +28,7 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
       <nav className="fixed top-0 left-0 right-0 z-50 glass-card-strong border-b-2 border-traiteur-forest/20">
         <div className="container mx-auto flex items-center justify-between px-6 py-3">
           <button onClick={onBack} className="flex items-center gap-2 text-traiteur-forest font-body text-sm font-medium btn-bounce">
-            <KMonogram variant="dark" size={24} showCircle={false} />
-            <span className="hidden sm:inline">Accueil</span>
+            <KMonogram variant="dark" size={28} />
           </button>
           <div className="flex items-center gap-2">
             <KMonogram variant="dark" size={28} />
