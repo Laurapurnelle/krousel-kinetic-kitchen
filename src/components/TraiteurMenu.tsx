@@ -15,6 +15,7 @@ interface MenuItem {
   name: string;
   description: string;
   image: string;
+  price: string;
 }
 
 interface MenuCategory {
@@ -30,9 +31,9 @@ const menuCategories: MenuCategory[] = [
     title: "Apéritifs & Finger Food",
     subtitle: "Idéal pour vos réceptions et cocktails dînatoires",
     items: [
-      { name: "Plateau Apéritif Garni", description: "Bruschetta pesto-prosciutto, canapés saumon-câpres, brochettes tomates-mozzarella, cornets de crudités, crackers, olives & fromages artisanaux", image: plateauImg },
-      { name: "Collection de Verrines", description: "Cocktail de crevettes, gazpacho frais, mousse de foie gras, crème de betterave — servies sur ardoise", image: verrinesImg },
-      { name: "Mini Sandwiches Artisanaux", description: "Assortiment sésame, pavot & campagne : poulet croustillant, saumon fumé, brie aux noix, dagobert jambon — étiquettes manuscrites", image: sandwichesImg },
+      { name: "Plateau Apéritif Garni", description: "Bruschetta pesto-prosciutto, canapés saumon-câpres, brochettes tomates-mozzarella, cornets de crudités, crackers, olives & fromages artisanaux", image: plateauImg, price: "18€/pers." },
+      { name: "Collection de Verrines", description: "Cocktail de crevettes, gazpacho frais, mousse de foie gras, crème de betterave — servies sur ardoise", image: verrinesImg, price: "14€/pers." },
+      { name: "Mini Sandwiches Artisanaux", description: "Assortiment sésame, pavot & campagne : poulet croustillant, saumon fumé, brie aux noix, dagobert jambon — étiquettes manuscrites", image: sandwichesImg, price: "12€/pers." },
     ],
   },
   {
@@ -40,8 +41,8 @@ const menuCategories: MenuCategory[] = [
     title: "Entrées",
     subtitle: "Des saveurs raffinées pour ouvrir l'appétit",
     items: [
-      { name: "Tartare de Saumon Frais", description: "Saumon coupé au couteau, brunoise de concombre, citron, pousses de betterave, microgreens & huile d'olive citronnée", image: tartareImg },
-      { name: "Salade Fraîcheur Burrata", description: "Mesclun, burrata crémeuse, prosciutto, tomates cerises, croûtons dorés & balsamique de Modène", image: saladeImg },
+      { name: "Tartare de Saumon Frais", description: "Saumon coupé au couteau, brunoise de concombre, citron, pousses de betterave, microgreens & huile d'olive citronnée", image: tartareImg, price: "16€/pers." },
+      { name: "Salade Fraîcheur Burrata", description: "Mesclun, burrata crémeuse, prosciutto, tomates cerises, croûtons dorés & balsamique de Modène", image: saladeImg, price: "13€/pers." },
     ],
   },
   {
@@ -49,8 +50,8 @@ const menuCategories: MenuCategory[] = [
     title: "Plats Principaux",
     subtitle: "Cuisine d'auteur, produits nobles",
     items: [
-      { name: "Magret de Canard Laqué", description: "Magret au miel & balsamique, purée de patate douce, légumes rôtis, jus réduit & microgreens", image: platImg },
-      { name: "Buffet de Mariage", description: "Formule complète sur mesure : petits fours, roses de saumon en tartelettes, mini quiches, champagne & desserts assortis", image: buffetImg },
+      { name: "Magret de Canard Laqué", description: "Magret au miel & balsamique, purée de patate douce, légumes rôtis, jus réduit & microgreens", image: platImg, price: "28€/pers." },
+      { name: "Buffet de Mariage", description: "Formule complète sur mesure : petits fours, roses de saumon en tartelettes, mini quiches, champagne & desserts assortis", image: buffetImg, price: "Sur devis" },
     ],
   },
   {
@@ -58,7 +59,7 @@ const menuCategories: MenuCategory[] = [
     title: "Desserts",
     subtitle: "La touche sucrée de Kassandra",
     items: [
-      { name: "Mousse au Chocolat Belge", description: "Mousse onctueuse au chocolat noir, copeaux & boucles de chocolat, perles craquantes, bonbons au chocolat blanc — servie en verrines individuelles", image: mousseImg },
+      { name: "Mousse au Chocolat Belge", description: "Mousse onctueuse au chocolat noir, copeaux & boucles de chocolat, perles craquantes, bonbons au chocolat blanc — servie en verrines individuelles", image: mousseImg, price: "8€/pers." },
     ],
   },
 ];
