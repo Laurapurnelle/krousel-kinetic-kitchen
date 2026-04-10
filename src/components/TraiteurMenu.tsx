@@ -137,10 +137,13 @@ const TraiteurMenu = () => {
                     height={400}
                   />
                 </div>
-                <div className="p-5 flex flex-col justify-center">
-                  <div className="flex items-center gap-2 mb-2">
-                    <UtensilsCrossed size={14} className="text-traiteur-forest" />
-                    <h3 className="font-heading text-lg font-semibold text-foreground">{item.name}</h3>
+                <div className="p-5 flex flex-col justify-center flex-1">
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <div className="flex items-center gap-2">
+                      <UtensilsCrossed size={14} className="text-traiteur-forest" />
+                      <h3 className="font-heading text-lg font-semibold text-foreground">{item.name}</h3>
+                    </div>
+                    <span className="font-heading text-lg font-bold text-traiteur-forest whitespace-nowrap">{item.price}</span>
                   </div>
                   <p className="font-body text-sm text-muted-foreground leading-relaxed">{item.description}</p>
                 </div>
