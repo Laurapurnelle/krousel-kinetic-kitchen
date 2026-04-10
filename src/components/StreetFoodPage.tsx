@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, Truck } from "lucide-react";
+import { ArrowLeft, MapPin } from "lucide-react";
 import LocationWidget from "./LocationWidget";
 import FriterieMenu from "./FriterieMenu";
 import KMonogram from "./KMonogram";
@@ -29,70 +29,51 @@ const StreetFoodPage = ({ onBack }: StreetFoodPageProps) => {
             <KMonogram variant="red" size={28} />
             <span className="font-heading text-lg font-bold text-primary">THE K'ROUSEL</span>
           </div>
-          <div className="flex items-center gap-6">
-            {[
-              { label: "La Carte", href: "#la-carte" },
-              { label: "Food Truck", href: "#food-truck" },
-            ].map((l) => (
-              <a key={l.href} href={l.href} className="hidden md:block font-body text-sm text-muted-foreground hover:text-primary transition-colors">
-                {l.label}
-              </a>
-            ))}
-          </div>
+          <a href="#la-carte" className="hidden md:block font-body text-sm text-muted-foreground hover:text-primary transition-colors">
+            La Carte
+          </a>
         </div>
       </nav>
 
-      {/* Hero */}
+      {/* Hero with integrated food truck location */}
       <section className="relative pt-16">
-        <div className="relative h-[55vh] overflow-hidden">
-          <img src={heroStreet} alt="La Friterie" className="w-full h-full object-cover" width={1280} height={720} />
+        <div className="relative h-[45vh] overflow-hidden">
+          <img src={heroStreet} alt="La Friterie & Food Truck" className="w-full h-full object-cover" width={1280} height={720} />
           <div className="absolute inset-0 bg-gradient-to-t from-street-red-dark/80 via-street-red/25 to-transparent" />
           <div className="absolute inset-0 flex items-center justify-center">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="text-center">
-              <KMonogram variant="cream" size={64} className="mx-auto mb-4" />
-              <h1 className="font-heading text-5xl md:text-6xl font-bold text-street-beige mb-3">
-                La Friterie
+              <KMonogram variant="cream" size={56} className="mx-auto mb-3" />
+              <h1 className="font-heading text-4xl md:text-5xl font-bold text-street-beige mb-2">
+                Friterie & Food Truck
               </h1>
-              <p className="font-heading text-lg italic text-street-cream mb-4">
+              <p className="font-heading text-base italic text-street-cream">
                 Made with love by Kassandra
-              </p>
-              <p className="font-body text-sm text-street-beige/80 max-w-lg mx-auto">
-                Les vrais classiques du fritkot belge, sublimés avec passion.
               </p>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Menu (Friterie) */}
-      <FriterieMenu />
-
-      {/* Food Truck Location */}
-      <section id="food-truck" className="py-20 px-6 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
+      {/* Food Truck Location — directly under hero */}
+      <section className="py-10 px-6 bg-gradient-to-b from-primary/8 to-transparent">
         <div className="container mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-10"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="flex items-center justify-center gap-2 mb-6"
           >
-            <div className="inline-flex items-center gap-2 mb-3">
-              <Truck className="text-street-gold" size={20} />
-              <p className="font-body text-sm uppercase tracking-[0.3em] text-street-gold">
-                Food Truck
-              </p>
-            </div>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-3">
-              Où nous trouver
-            </h2>
-            <p className="font-body text-sm text-muted-foreground max-w-md mx-auto">
-              Retrouvez notre food truck en direct ou venez nous rendre visite à la friterie fixe. 
-              Pas de commande en ligne — venez profiter sur place !
+            <MapPin className="text-primary" size={18} />
+            <p className="font-body text-sm uppercase tracking-[0.2em] text-primary font-semibold">
+              Où nous trouver aujourd'hui
             </p>
           </motion.div>
           <LocationWidget />
         </div>
       </section>
+
+      {/* Menu */}
+      <FriterieMenu />
 
       {/* Footer */}
       <footer className="bg-primary py-12 px-6 text-center">

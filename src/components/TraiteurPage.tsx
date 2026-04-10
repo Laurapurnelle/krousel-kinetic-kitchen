@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, Instagram, Mail, Phone } from "lucide-react";
 import TraiteurQuiz from "./TraiteurQuiz";
+import TraiteurGallery from "./TraiteurGallery";
+import FoodTruckBooking from "./FoodTruckBooking";
+import KMonogram from "./KMonogram";
 import heroTraiteur from "@/assets/hero-traiteur.jpg";
 
 interface TraiteurPageProps {
@@ -16,18 +19,26 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
       transition={{ duration: 0.5 }}
       className="min-h-screen"
     >
-      {/* Navbar Traiteur */}
+      {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 glass-card-strong border-b-2 border-traiteur-forest/20">
-        <div className="container mx-auto flex items-center justify-between px-6 py-4">
+        <div className="container mx-auto flex items-center justify-between px-6 py-3">
           <button onClick={onBack} className="flex items-center gap-2 text-traiteur-forest font-body text-sm font-medium btn-bounce">
             <ArrowLeft size={18} />
             Accueil
           </button>
-          <span className="font-heading text-xl font-bold text-traiteur-forest">THE K'ROUSEL</span>
+          <div className="flex items-center gap-2">
+            <KMonogram variant="dark" size={28} />
+            <span className="font-heading text-lg font-bold text-traiteur-forest">THE K'ROUSEL</span>
+          </div>
           <div className="flex items-center gap-6">
-            {["Le Concept", "Votre Menu", "Contact"].map((l) => (
-              <a key={l} href={`#${l.toLowerCase().replace(/ /g, "-")}`} className="hidden md:block font-body text-sm text-muted-foreground hover:text-traiteur-forest transition-colors">
-                {l}
+            {[
+              { label: "Réalisations", href: "#realisations" },
+              { label: "Food Truck", href: "#food-truck-booking" },
+              { label: "Votre Menu", href: "#votre-menu" },
+              { label: "Contact", href: "#contact" },
+            ].map((l) => (
+              <a key={l.href} href={l.href} className="hidden md:block font-body text-sm text-muted-foreground hover:text-traiteur-forest transition-colors">
+                {l.label}
               </a>
             ))}
           </div>
@@ -35,16 +46,17 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
       </nav>
 
       {/* Hero */}
-      <section className="relative pt-20">
-        <div className="relative h-[60vh] overflow-hidden">
+      <section className="relative pt-16">
+        <div className="relative h-[55vh] overflow-hidden">
           <img src={heroTraiteur} alt="Traiteur sur mesure" className="w-full h-full object-cover" width={1280} height={720} />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-traiteur-forest/20 to-transparent" />
           <div className="absolute inset-0 flex items-center justify-center">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="text-center">
-              <p className="font-body text-sm uppercase tracking-[0.3em] text-traiteur-olive mb-3">Traiteur Sur Mesure</p>
-              <h1 className="font-heading text-5xl md:text-6xl font-bold text-traiteur-offwhite mb-4">L'Art de Recevoir</h1>
+              <KMonogram variant="cream" size={56} className="mx-auto mb-3" />
+              <p className="font-body text-sm uppercase tracking-[0.3em] text-traiteur-olive mb-3">Traiteur & Privatisation</p>
+              <h1 className="font-heading text-5xl md:text-6xl font-bold text-traiteur-offwhite mb-3">L'Art de Recevoir</h1>
               <p className="font-body text-base text-traiteur-offwhite/80 max-w-lg mx-auto">
-                Kassandra Lorquet compose pour vous des expériences culinaires uniques, pensées pour sublimer chaque moment.
+                Menus sur mesure, food truck privatisé & expériences culinaires uniques par Kassandra Lorquet.
               </p>
             </motion.div>
           </div>
@@ -84,6 +96,12 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
         </div>
       </section>
 
+      {/* Gallery */}
+      <TraiteurGallery />
+
+      {/* Food Truck Booking */}
+      <FoodTruckBooking />
+
       {/* Quiz */}
       <TraiteurQuiz />
 
@@ -93,7 +111,7 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h2 className="font-heading text-3xl font-bold text-foreground mb-4">Parlons de Votre Projet</h2>
             <p className="font-body text-sm text-muted-foreground mb-8">
-              Contactez-nous pour discuter de votre événement et recevoir une proposition personnalisée.
+              Traiteur sur mesure ou privatisation du food truck — contactez-nous pour discuter de votre événement.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="mailto:contact@therousel.be" className="flex items-center justify-center gap-2 bg-traiteur-forest text-traiteur-offwhite px-6 py-3 rounded-xl font-body text-sm font-semibold btn-bounce">
@@ -107,10 +125,11 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
         </div>
       </section>
 
-      {/* Footer Traiteur */}
+      {/* Footer */}
       <footer className="bg-traiteur-forest py-12 px-6 text-center">
+        <KMonogram variant="cream" size={40} className="mx-auto mb-3" />
         <p className="font-heading text-2xl font-bold text-traiteur-offwhite mb-2">THE K'ROUSEL</p>
-        <p className="font-body text-sm text-traiteur-offwhite/60">Traiteur Sur Mesure — Liège, Belgique</p>
+        <p className="font-body text-sm text-traiteur-offwhite/60">Traiteur & Privatisation Food Truck — Liège, Belgique</p>
         <div className="flex items-center justify-center gap-4 mt-6">
           {[Instagram, Mail, Phone].map((Icon, i) => (
             <a key={i} href="#" className="w-9 h-9 rounded-full bg-traiteur-offwhite/10 flex items-center justify-center text-traiteur-offwhite/60 hover:text-traiteur-offwhite transition-colors">
