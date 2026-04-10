@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, Instagram, Mail, Phone } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import TraiteurQuiz from "./TraiteurQuiz";
 import TraiteurGallery from "./TraiteurGallery";
 import TraiteurMenu from "./TraiteurMenu";
-import FoodTruckBooking from "./FoodTruckBooking";
+import FoodTruckMenu from "./FoodTruckMenu";
+import ClientReviews from "./ClientReviews";
 import KMonogram from "./KMonogram";
 import heroTraiteur from "@/assets/hero-traiteur.jpg";
 
@@ -12,6 +14,8 @@ interface TraiteurPageProps {
 }
 
 const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
+  const navigate = useNavigate();
+
   return (
     <motion.div
       initial={{ opacity: 0, x: 60 }}
@@ -24,8 +28,8 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
       <nav className="fixed top-0 left-0 right-0 z-50 glass-card-strong border-b-2 border-traiteur-forest/20">
         <div className="container mx-auto flex items-center justify-between px-6 py-3">
           <button onClick={onBack} className="flex items-center gap-2 text-traiteur-forest font-body text-sm font-medium btn-bounce">
-            <ArrowLeft size={18} />
-            Accueil
+            <KMonogram variant="dark" size={24} showCircle={false} />
+            <span className="hidden sm:inline">Accueil</span>
           </button>
           <div className="flex items-center gap-2">
             <KMonogram variant="dark" size={28} />
@@ -35,13 +39,19 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
             {[
               { label: "Réalisations", href: "#realisations" },
               { label: "La Carte", href: "#notre-carte" },
-              { label: "Food Truck", href: "#food-truck-booking" },
+              { label: "Food Truck", href: "#food-truck-menu" },
               { label: "Votre Menu", href: "#votre-menu" },
-              { label: "Contact", href: "#contact" },
+              { label: "Devis", href: "/devis" },
             ].map((l) => (
-              <a key={l.href} href={l.href} className="hidden md:block font-body text-sm text-muted-foreground hover:text-traiteur-forest transition-colors">
-                {l.label}
-              </a>
+              l.href.startsWith("/") ? (
+                <button key={l.href} onClick={() => navigate(l.href)} className="hidden md:block font-body text-sm text-muted-foreground hover:text-traiteur-forest transition-colors">
+                  {l.label}
+                </button>
+              ) : (
+                <a key={l.href} href={l.href} className="hidden md:block font-body text-sm text-muted-foreground hover:text-traiteur-forest transition-colors">
+                  {l.label}
+                </a>
+              )
             ))}
           </div>
         </div>
@@ -78,7 +88,7 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
       {/* Concept */}
       <section id="le-concept" className="py-20 px-6">
         <div className="container mx-auto max-w-3xl">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-left mb-12">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">Notre Philosophie</h2>
             <p className="font-body text-base text-muted-foreground leading-relaxed">
               Chaque événement est unique. C'est pourquoi nous concevons des menus sur mesure, 
@@ -98,7 +108,7 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
-                className="glass-card rounded-2xl p-6 text-center hover-lift"
+                className="glass-card rounded-2xl p-6 text-left hover-lift"
               >
                 <h3 className="font-heading text-lg font-semibold text-traiteur-forest mb-2">{item.title}</h3>
                 <p className="font-body text-sm text-muted-foreground">{item.desc}</p>
@@ -108,33 +118,41 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
         </div>
       </section>
 
-      {/* Gallery */}
+      {/* Gallery & Reviews */}
       <TraiteurGallery />
+      <ClientReviews />
 
       {/* Carte Traiteur */}
       <TraiteurMenu />
 
-      {/* Food Truck Booking */}
-      <FoodTruckBooking />
+      {/* Food Truck Menu */}
+      <div id="food-truck-menu">
+        <FoodTruckMenu />
+      </div>
 
       {/* Quiz */}
-      <TraiteurQuiz />
+      <div id="votre-menu">
+        <TraiteurQuiz />
+      </div>
 
       {/* Contact */}
       <section id="contact" className="py-20 px-6">
-        <div className="container mx-auto max-w-lg text-center">
+        <div className="container mx-auto max-w-lg text-left">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h2 className="font-heading text-3xl font-bold text-foreground mb-4">Parlons de Votre Projet</h2>
             <p className="font-body text-sm text-muted-foreground mb-8">
               Traiteur sur mesure ou privatisation du food truck — contactez-nous pour discuter de votre événement.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4">
               <a href="mailto:contact@therousel.be" className="flex items-center justify-center gap-2 bg-traiteur-forest text-traiteur-offwhite px-6 py-3 rounded-xl font-body text-sm font-semibold btn-bounce">
                 <Mail size={16} /> Nous Écrire
               </a>
-              <a href="tel:+32000000000" className="flex items-center justify-center gap-2 border-2 border-traiteur-forest text-traiteur-forest px-6 py-3 rounded-xl font-body text-sm font-semibold btn-bounce hover:bg-traiteur-forest/5 transition-colors">
-                <Phone size={16} /> Appeler
-              </a>
+              <button
+                onClick={() => navigate("/devis")}
+                className="flex items-center justify-center gap-2 border-2 border-traiteur-forest text-traiteur-forest px-6 py-3 rounded-xl font-body text-sm font-semibold btn-bounce hover:bg-traiteur-forest/5 transition-colors"
+              >
+                Demander un Devis
+              </button>
             </div>
           </motion.div>
         </div>

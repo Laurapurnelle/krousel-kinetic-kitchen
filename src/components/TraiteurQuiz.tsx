@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Heart, Building2, PartyPopper, TreePine, Sparkles, Palette, Beef, Leaf, Flame, ChevronRight, ChevronLeft, Award } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const quizSteps = [
   {
@@ -58,6 +59,7 @@ function getResult(selections: Record<number, string>): typeof menuResults.defau
 }
 
 const TraiteurQuiz = () => {
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(0);
   const [selections, setSelections] = useState<Record<number, string>>({});
   const [showResult, setShowResult] = useState(false);
@@ -223,6 +225,7 @@ const TraiteurQuiz = () => {
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <motion.button
                     whileTap={{ scale: 0.95 }}
+                    onClick={() => navigate("/devis?motif=traiteur-prive")}
                     className="bg-traiteur-forest text-traiteur-offwhite px-6 py-3 rounded-xl font-body text-sm font-semibold uppercase tracking-wider btn-bounce"
                   >
                     Demander un Devis
