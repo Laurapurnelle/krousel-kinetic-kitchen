@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Heart, Building2, PartyPopper, TreePine, Sparkles, Palette, Beef, Leaf, Flame, ChevronRight, ChevronLeft, Award } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const quizSteps = [
   {
