@@ -1,22 +1,23 @@
 interface KMonogramProps {
-  variant?: "red" | "dark" | "gold" | "cream";
+  variant?: "gold" | "cream" | "red" | "dark";
   size?: number;
   className?: string;
+  showCircle?: boolean;
 }
 
 const colorMap = {
-  red: { primary: "hsl(0, 78%, 42%)", secondary: "hsl(0, 78%, 42%)" },
-  dark: { primary: "hsl(0, 75%, 30%)", secondary: "hsl(0, 75%, 30%)" },
-  gold: { primary: "hsl(42, 70%, 58%)", secondary: "hsl(42, 70%, 58%)" },
-  cream: { primary: "hsl(42, 65%, 75%)", secondary: "hsl(42, 65%, 75%)" },
+  gold: { stroke: "hsl(42, 70%, 58%)", fill: "hsl(42, 70%, 58%)" },
+  cream: { stroke: "hsl(42, 65%, 80%)", fill: "hsl(42, 65%, 80%)" },
+  red: { stroke: "hsl(0, 78%, 42%)", fill: "hsl(0, 78%, 42%)" },
+  dark: { stroke: "hsl(0, 50%, 22%)", fill: "hsl(0, 50%, 22%)" },
 };
 
 /**
- * K'ROUSEL monogram — a stylized K that fuses a fork silhouette with carousel lines.
- * Based on the mood board's 4-color K logo variants.
+ * K'ROUSEL monogram — a K fused with a fork, inside an optional circle.
+ * Based on the burger box branding: gold on dark bordeaux.
  */
-const KMonogram = ({ variant = "red", size = 48, className = "" }: KMonogramProps) => {
-  const colors = colorMap[variant];
+const KMonogram = ({ variant = "gold", size = 48, className = "", showCircle = true }: KMonogramProps) => {
+  const c = colorMap[variant];
 
   return (
     <svg
@@ -27,33 +28,27 @@ const KMonogram = ({ variant = "red", size = 48, className = "" }: KMonogramProp
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
-      {/* Main K shape — left vertical stroke */}
-      <path
-        d="M25 15 L25 85 Q25 90 30 90 L30 90 Q35 90 35 85 L35 58 L35 42 L35 15 Q35 10 30 10 L30 10 Q25 10 25 15Z"
-        fill={colors.primary}
-      />
-      {/* Upper diagonal — fork tine feeling */}
-      <path
-        d="M35 50 L62 18 Q65 14 70 17 L70 17 Q74 20 71 24 L45 55Z"
-        fill={colors.primary}
-      />
-      {/* Lower diagonal */}
-      <path
-        d="M35 50 L62 82 Q65 86 70 83 L70 83 Q74 80 71 76 L45 45Z"
-        fill={colors.secondary}
-      />
-      {/* Fork prong accent — top */}
-      <path
-        d="M64 12 Q66 8 69 10 L69 10 Q72 12 70 15 L66 20 Q64 16 64 12Z"
-        fill={colors.primary}
-        opacity="0.7"
-      />
-      {/* Fork prong accent — upper mid */}
-      <path
-        d="M72 14 Q74 10 77 12 L77 12 Q80 14 78 17 L74 22 Q72 18 72 14Z"
-        fill={colors.primary}
-        opacity="0.5"
-      />
+      {/* Optional circle border */}
+      {showCircle && (
+        <circle cx="50" cy="50" r="46" stroke={c.stroke} strokeWidth="2" fill="none" />
+      )}
+
+      {/* Fork handle — vertical line (left part of K) */}
+      <line x1="38" y1="22" x2="38" y2="78" stroke={c.fill} strokeWidth="4" strokeLinecap="round" />
+
+      {/* Fork tines (top of the vertical) */}
+      <line x1="33" y1="22" x2="33" y2="34" stroke={c.fill} strokeWidth="2.5" strokeLinecap="round" />
+      <line x1="38" y1="22" x2="38" y2="34" stroke={c.fill} strokeWidth="2.5" strokeLinecap="round" />
+      <line x1="43" y1="22" x2="43" y2="34" stroke={c.fill} strokeWidth="2.5" strokeLinecap="round" />
+
+      {/* Fork bridge connecting tines */}
+      <path d="M33 34 Q38 38 43 34" stroke={c.fill} strokeWidth="2.5" fill="none" strokeLinecap="round" />
+
+      {/* K upper diagonal arm */}
+      <line x1="42" y1="50" x2="62" y2="28" stroke={c.fill} strokeWidth="4" strokeLinecap="round" />
+
+      {/* K lower diagonal leg */}
+      <line x1="42" y1="50" x2="62" y2="72" stroke={c.fill} strokeWidth="4" strokeLinecap="round" />
     </svg>
   );
 };
