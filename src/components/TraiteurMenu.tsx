@@ -11,6 +11,12 @@ import saladeImg from "@/assets/traiteur-salade-fraiche.jpg";
 import mousseImg from "@/assets/traiteur-mousse-chocolat.jpg";
 import verrinesImg from "@/assets/traiteur-verrines.jpg";
 import buffetImg from "@/assets/traiteur-buffet-mariage.jpg";
+import tatakiImg from "@/assets/traiteur-tataki-thon.jpg";
+import foieGrasImg from "@/assets/traiteur-foie-gras.jpg";
+import filetBarImg from "@/assets/traiteur-filet-bar.jpg";
+import risottoImg from "@/assets/traiteur-risotto-truffe.jpg";
+import domeImg from "@/assets/traiteur-dome-chocolat.jpg";
+import pannaCottaImg from "@/assets/traiteur-panna-cotta.jpg";
 
 interface MenuItem {
   name: string;
@@ -83,8 +89,8 @@ const menuCategories: MenuCategory[] = [
     items: [
       { name: "Tartare de Saumon Frais", description: "Saumon coupé au couteau, brunoise de concombre, citron, pousses de betterave, microgreens & huile d'olive citronnée", image: tartareImg, price: "16€/pers." },
       { name: "Salade Fraîcheur Burrata", description: "Mesclun, burrata crémeuse, prosciutto, tomates cerises, croûtons dorés & balsamique de Modène", image: saladeImg, price: "13€/pers." },
-      { name: "Tataki de Thon aux Agrumes", description: "Thon rouge snacké, émulsion d'agrumes, sésame noir, pickles de gingembre & wakamé", image: tartareImg, price: "18€/pers." },
-      { name: "Foie Gras Mi-Cuit Maison", description: "Foie gras de canard mi-cuit, chutney de figues, fleur de sel & brioche toastée", image: plateauImg, price: "22€/pers." },
+      { name: "Tataki de Thon aux Agrumes", description: "Thon rouge snacké, émulsion d'agrumes, sésame noir, pickles de gingembre & wakamé", image: tatakiImg, price: "18€/pers." },
+      { name: "Foie Gras Mi-Cuit Maison", description: "Foie gras de canard mi-cuit, chutney de figues, fleur de sel & brioche toastée", image: foieGrasImg, price: "22€/pers." },
     ],
   },
   {
@@ -93,8 +99,8 @@ const menuCategories: MenuCategory[] = [
     subtitle: "Cuisine d'auteur, produits nobles",
     items: [
       { name: "Magret de Canard Laqué", description: "Magret au miel & balsamique, purée de patate douce, légumes rôtis, jus réduit & microgreens", image: platImg, price: "28€/pers." },
-      { name: "Filet de Bar, Beurre Blanc", description: "Bar de ligne cuit sur peau, beurre blanc aux herbes, risotto crémeux & légumes croquants", image: saladeImg, price: "26€/pers." },
-      { name: "Risotto Truffe & Parmesan 36 Mois", description: "Risotto carnaroli crémeux, copeaux de parmesan reggiano, huile de truffe noire & roquette", image: verrinesImg, price: "24€/pers." },
+      { name: "Filet de Bar, Beurre Blanc", description: "Bar de ligne cuit sur peau, beurre blanc aux herbes, risotto crémeux & légumes croquants", image: filetBarImg, price: "26€/pers." },
+      { name: "Risotto Truffe & Parmesan 36 Mois", description: "Risotto carnaroli crémeux, copeaux de parmesan reggiano, huile de truffe noire & roquette", image: risottoImg, price: "24€/pers." },
       { name: "Buffet de Mariage", description: "Formule complète sur mesure : petits fours, roses de saumon en tartelettes, mini quiches, champagne & desserts assortis", image: buffetImg, price: "Sur devis" },
     ],
   },
@@ -104,8 +110,8 @@ const menuCategories: MenuCategory[] = [
     subtitle: "La touche sucrée de Kassandra",
     items: [
       { name: "Mousse au Chocolat Belge", description: "Mousse onctueuse au chocolat noir, copeaux & boucles de chocolat, perles craquantes, bonbons au chocolat blanc", image: mousseImg, price: "8€/pers." },
-      { name: "Dôme Chocolat & Passion", description: "Coque en chocolat noir, cœur coulant fruit de la passion, crumble coco & coulis mangue", image: mousseImg, price: "12€/pers." },
-      { name: "Panna Cotta Coco & Mangue", description: "Panna cotta au lait de coco, coulis de mangue fraîche, éclats de pistache & tuile dentelle", image: verrinesImg, price: "9€/pers." },
+      { name: "Dôme Chocolat & Passion", description: "Coque en chocolat noir, cœur coulant fruit de la passion, crumble coco & coulis mangue", image: domeImg, price: "12€/pers." },
+      { name: "Panna Cotta Coco & Mangue", description: "Panna cotta au lait de coco, coulis de mangue fraîche, éclats de pistache & tuile dentelle", image: pannaCottaImg, price: "9€/pers." },
     ],
   },
 ];

@@ -22,8 +22,7 @@ const StreetFoodPage = ({ onBack }: StreetFoodPageProps) => {
       <nav className="fixed top-0 left-0 right-0 z-50 glass-card-strong border-b-2 border-primary/20">
         <div className="container mx-auto flex items-center justify-between px-6 py-3">
           <button onClick={onBack} className="flex items-center gap-2 text-primary font-body text-sm font-medium btn-bounce">
-            <KMonogram variant="red" size={24} showCircle={false} />
-            <span className="hidden sm:inline">Accueil</span>
+            <KMonogram variant="red" size={28} />
           </button>
           <div className="flex items-center gap-2">
             <KMonogram variant="red" size={28} />
