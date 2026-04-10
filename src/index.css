@@ -1,95 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 30 33% 89%;
+    --foreground: 30 10% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 30 33% 93%;
+    --card-foreground: 30 10% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 30 33% 95%;
+    --popover-foreground: 30 10% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 0 80% 27%;
+    --primary-foreground: 30 33% 95%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 36 72% 46%;
+    --secondary-foreground: 30 33% 95%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 30 20% 82%;
+    --muted-foreground: 30 10% 40%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 50 90% 60%;
+    --accent-foreground: 30 10% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 30 20% 78%;
+    --input: 30 20% 82%;
+    --ring: 0 80% 27%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Street Food palette */
+    --street-bordeaux: 0 80% 27%;
+    --street-brick: 36 72% 46%;
+    --street-yellow: 50 90% 60%;
+    --street-beige: 30 33% 89%;
+
+    /* Traiteur palette */
+    --traiteur-forest: 108 10% 14%;
+    --traiteur-olive: 90 18% 56%;
+    --traiteur-offwhite: 15 10% 95%;
+    --traiteur-beige: 30 33% 89%;
+
+    /* Glassmorphism */
+    --glass-bg: 30 33% 95% / 0.6;
+    --glass-border: 30 20% 85% / 0.3;
+    --glass-shadow: 0 8px 32px rgba(0,0,0,0.08);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
@@ -100,6 +70,58 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/60 backdrop-blur-xl border border-border/30 shadow-lg;
+  }
+
+  .glass-card-strong {
+    @apply bg-card/80 backdrop-blur-2xl border border-border/40 shadow-xl;
+  }
+
+  .btn-bounce {
+    @apply transition-transform duration-200 active:scale-95 hover:scale-[1.02];
+  }
+
+  .text-gradient-street {
+    @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent;
+  }
+
+  .text-gradient-traiteur {
+    @apply bg-gradient-to-r from-traiteur-forest via-traiteur-olive to-traiteur-offwhite bg-clip-text text-transparent;
+  }
+
+  .section-street {
+    --section-primary: var(--street-bordeaux);
+    --section-secondary: var(--street-brick);
+    --section-accent: var(--street-yellow);
+  }
+
+  .section-traiteur {
+    --section-primary: var(--traiteur-forest);
+    --section-secondary: var(--traiteur-olive);
+    --section-accent: var(--traiteur-offwhite);
+  }
+
+  .cinematic-shadow {
+    box-shadow: 0 4px 30px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .cinematic-shadow-lg {
+    box-shadow: 0 10px 50px rgba(0,0,0,0.1), 0 2px 6px rgba(0,0,0,0.06);
+  }
+}
+
+@layer utilities {
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
   }
 }
