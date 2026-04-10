@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Instagram, Mail, Phone } from "lucide-react";
 import TraiteurQuiz from "./TraiteurQuiz";
 import TraiteurGallery from "./TraiteurGallery";
+import TraiteurMenu from "./TraiteurMenu";
 import FoodTruckBooking from "./FoodTruckBooking";
 import KMonogram from "./KMonogram";
 import heroTraiteur from "@/assets/hero-traiteur.jpg";
@@ -33,6 +34,7 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
           <div className="flex items-center gap-6">
             {[
               { label: "Réalisations", href: "#realisations" },
+              { label: "La Carte", href: "#notre-carte" },
               { label: "Food Truck", href: "#food-truck-booking" },
               { label: "Votre Menu", href: "#votre-menu" },
               { label: "Contact", href: "#contact" },
@@ -98,6 +100,9 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
 
       {/* Gallery */}
       <TraiteurGallery />
+
+      {/* Carte Traiteur */}
+      <TraiteurMenu />
 
       {/* Food Truck Booking */}
       <FoodTruckBooking />
