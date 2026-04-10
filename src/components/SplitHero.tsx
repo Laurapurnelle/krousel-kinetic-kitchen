@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import {} from "lucide-react";
+
 import heroStreet from "@/assets/hero-street.jpg";
 import heroTraiteur from "@/assets/hero-traiteur.jpg";
 import KMonogram from "./KMonogram";
