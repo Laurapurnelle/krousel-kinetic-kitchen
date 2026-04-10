@@ -2,24 +2,24 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
-import miniSandwichesImg from "@/assets/traiteur-mini-sandwiches.jpg";
-import tartareSaumonImg from "@/assets/traiteur-tartare-saumon.jpg";
-import mousseChocolatImg from "@/assets/traiteur-mousse-chocolat.jpg";
-import plateauAperitifImg from "@/assets/traiteur-plateau-aperitif.jpg";
-import saladeFraicheImg from "@/assets/traiteur-salade-fraiche.jpg";
-import buffetMariageImg from "@/assets/traiteur-buffet-mariage.jpg";
-import platPrincipalImg from "@/assets/traiteur-plat-principal.jpg";
-import verrinesImg from "@/assets/traiteur-verrines.jpg";
+import mariageOutdoorImg from "@/assets/event-mariage-outdoor.jpg";
+import corporateCocktailImg from "@/assets/event-corporate-cocktail.jpg";
+import foodtruckGardenImg from "@/assets/event-foodtruck-garden.jpg";
+import anniversaireImg from "@/assets/event-anniversaire.jpg";
+import grazingTableImg from "@/assets/event-grazing-table.jpg";
+import chefActionImg from "@/assets/event-chef-action.jpg";
+import festivalNightImg from "@/assets/event-festival-night.jpg";
+import brunchTerrasseImg from "@/assets/event-brunch-terrasse.jpg";
 
 const galleryItems = [
-  { src: buffetMariageImg, alt: "Buffet mariage élégant", label: "Buffet Mariage", category: "Événement" },
-  { src: plateauAperitifImg, alt: "Plateau apéritif garni", label: "Plateau Apéritif", category: "Apéritif" },
-  { src: tartareSaumonImg, alt: "Tartare de saumon frais", label: "Tartare Saumon", category: "Entrée" },
-  { src: miniSandwichesImg, alt: "Mini sandwiches artisanaux", label: "Mini Sandwiches", category: "Finger Food" },
-  { src: platPrincipalImg, alt: "Plat gastronomique", label: "Plat Principal", category: "Plat" },
-  { src: mousseChocolatImg, alt: "Mousse au chocolat belge", label: "Mousse Chocolat", category: "Dessert" },
-  { src: saladeFraicheImg, alt: "Salade fraîche burrata", label: "Salade Fraîche", category: "Salade" },
-  { src: verrinesImg, alt: "Verrines apéritives", label: "Verrines", category: "Apéritif" },
+  { src: mariageOutdoorImg, alt: "Réception de mariage en plein air", label: "Mariage en Plein Air", category: "Mariage" },
+  { src: corporateCocktailImg, alt: "Cocktail dînatoire corporate", label: "Cocktail Corporate", category: "Entreprise" },
+  { src: grazingTableImg, alt: "Table de partage garnie", label: "Grazing Table", category: "Réception" },
+  { src: foodtruckGardenImg, alt: "Food truck dans un jardin privatisé", label: "Food Truck Privatisé", category: "Privatisation" },
+  { src: chefActionImg, alt: "Chef en action lors d'un événement", label: "Chef en Action", category: "Service" },
+  { src: anniversaireImg, alt: "Dîner d'anniversaire intime", label: "Dîner Intimiste", category: "Privé" },
+  { src: festivalNightImg, alt: "Stand food truck en festival nocturne", label: "Festival & Marché", category: "Festival" },
+  { src: brunchTerrasseImg, alt: "Brunch sur terrasse ensoleillée", label: "Brunch Terrasse", category: "Brunch" },
 ];
 
 const TraiteurGallery = () => {
@@ -35,13 +35,13 @@ const TraiteurGallery = () => {
           className="text-center mb-12"
         >
           <p className="font-body text-sm uppercase tracking-[0.3em] text-traiteur-olive mb-3">
-            Nos Créations
+            Nos Événements
           </p>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
-            L'Art Culinaire par Kassandra
+            Ils Nous Ont Fait Confiance
           </h2>
           <p className="font-body text-sm text-muted-foreground max-w-md mx-auto">
-            Chaque plat est une création unique, préparée avec passion et des produits d'exception.
+            Mariages, soirées corporate, fêtes privées & festivals — découvrez l'ambiance de nos prestations.
           </p>
         </motion.div>
 
