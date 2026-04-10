@@ -225,6 +225,7 @@ const TraiteurQuiz = () => {
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <motion.button
                     whileTap={{ scale: 0.95 }}
+                    onClick={() => navigate("/devis?motif=traiteur-prive")}
                     className="bg-traiteur-forest text-traiteur-offwhite px-6 py-3 rounded-xl font-body text-sm font-semibold uppercase tracking-wider btn-bounce"
                   >
                     Demander un Devis
