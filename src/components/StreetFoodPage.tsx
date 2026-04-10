@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Truck } from "lucide-react";
 import LocationWidget from "./LocationWidget";
 import FriterieMenu from "./FriterieMenu";
+import KMonogram from "./KMonogram";
 import heroStreet from "@/assets/hero-street.jpg";
 
 interface StreetFoodPageProps {
@@ -19,12 +20,15 @@ const StreetFoodPage = ({ onBack }: StreetFoodPageProps) => {
     >
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 glass-card-strong border-b-2 border-primary/20">
-        <div className="container mx-auto flex items-center justify-between px-6 py-4">
+        <div className="container mx-auto flex items-center justify-between px-6 py-3">
           <button onClick={onBack} className="flex items-center gap-2 text-primary font-body text-sm font-medium btn-bounce">
             <ArrowLeft size={18} />
             Accueil
           </button>
-          <span className="font-heading text-xl font-bold text-primary">THE K'ROUSEL</span>
+          <div className="flex items-center gap-2">
+            <KMonogram variant="red" size={28} />
+            <span className="font-heading text-lg font-bold text-primary">THE K'ROUSEL</span>
+          </div>
           <div className="flex items-center gap-6">
             {[
               { label: "La Carte", href: "#la-carte" },
@@ -39,20 +43,21 @@ const StreetFoodPage = ({ onBack }: StreetFoodPageProps) => {
       </nav>
 
       {/* Hero */}
-      <section className="relative pt-20">
-        <div className="relative h-[50vh] overflow-hidden">
+      <section className="relative pt-16">
+        <div className="relative h-[55vh] overflow-hidden">
           <img src={heroStreet} alt="La Friterie" className="w-full h-full object-cover" width={1280} height={720} />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-primary/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-street-red-dark/80 via-street-red/25 to-transparent" />
           <div className="absolute inset-0 flex items-center justify-center">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="text-center">
-              <p className="font-body text-sm uppercase tracking-[0.3em] text-street-yellow mb-3">
-                Friterie & Food Truck
-              </p>
-              <h1 className="font-heading text-5xl md:text-6xl font-bold text-street-beige mb-4">
+              <KMonogram variant="cream" size={64} className="mx-auto mb-4" />
+              <h1 className="font-heading text-5xl md:text-6xl font-bold text-street-beige mb-3">
                 La Friterie
               </h1>
-              <p className="font-body text-base text-street-beige/80 max-w-lg mx-auto">
-                Par Kassandra Lorquet — les vrais classiques du fritkot belge, sublimés avec passion.
+              <p className="font-heading text-lg italic text-street-cream mb-4">
+                Made with love by Kassandra
+              </p>
+              <p className="font-body text-sm text-street-beige/80 max-w-lg mx-auto">
+                Les vrais classiques du fritkot belge, sublimés avec passion.
               </p>
             </motion.div>
           </div>
@@ -62,7 +67,7 @@ const StreetFoodPage = ({ onBack }: StreetFoodPageProps) => {
       {/* Menu (Friterie) */}
       <FriterieMenu />
 
-      {/* Food Truck Location (separate section, location only) */}
+      {/* Food Truck Location */}
       <section id="food-truck" className="py-20 px-6 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
         <div className="container mx-auto">
           <motion.div
@@ -72,8 +77,8 @@ const StreetFoodPage = ({ onBack }: StreetFoodPageProps) => {
             className="text-center mb-10"
           >
             <div className="inline-flex items-center gap-2 mb-3">
-              <Truck className="text-secondary" size={20} />
-              <p className="font-body text-sm uppercase tracking-[0.3em] text-secondary">
+              <Truck className="text-street-gold" size={20} />
+              <p className="font-body text-sm uppercase tracking-[0.3em] text-street-gold">
                 Food Truck
               </p>
             </div>
@@ -91,9 +96,10 @@ const StreetFoodPage = ({ onBack }: StreetFoodPageProps) => {
 
       {/* Footer */}
       <footer className="bg-primary py-12 px-6 text-center">
-        <p className="font-heading text-2xl font-bold text-primary-foreground mb-2">THE K'ROUSEL</p>
-        <p className="font-body text-sm text-primary-foreground/60">Friterie & Food Truck — Liège, Belgique</p>
-        <p className="font-body text-xs text-primary-foreground/40 mt-1">Par Kassandra Lorquet</p>
+        <KMonogram variant="cream" size={40} className="mx-auto mb-3" />
+        <p className="font-heading text-2xl font-bold text-primary-foreground mb-1">THE K'ROUSEL</p>
+        <p className="font-heading text-sm italic text-street-cream/80">Made with love by Kassandra</p>
+        <p className="font-body text-xs text-primary-foreground/50 mt-1">Friterie & Food Truck — Liège, Belgique</p>
         <p className="font-body text-xs text-primary-foreground/30 mt-4">© {new Date().getFullYear()} THE K'ROUSEL</p>
       </footer>
     </motion.div>
