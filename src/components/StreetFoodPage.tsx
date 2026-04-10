@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import LocationWidget from "./LocationWidget";
 import FriterieMenu from "./FriterieMenu";
 import KMonogram from "./KMonogram";
@@ -22,8 +22,8 @@ const StreetFoodPage = ({ onBack }: StreetFoodPageProps) => {
       <nav className="fixed top-0 left-0 right-0 z-50 glass-card-strong border-b-2 border-primary/20">
         <div className="container mx-auto flex items-center justify-between px-6 py-3">
           <button onClick={onBack} className="flex items-center gap-2 text-primary font-body text-sm font-medium btn-bounce">
-            <ArrowLeft size={18} />
-            Accueil
+            <KMonogram variant="red" size={24} showCircle={false} />
+            <span className="hidden sm:inline">Accueil</span>
           </button>
           <div className="flex items-center gap-2">
             <KMonogram variant="red" size={28} />
@@ -35,18 +35,18 @@ const StreetFoodPage = ({ onBack }: StreetFoodPageProps) => {
         </div>
       </nav>
 
-      {/* Hero with integrated food truck location */}
+      {/* Hero with blur transition like traiteur */}
       <section className="relative pt-16">
         <div className="relative h-[45vh] overflow-hidden">
           <img src={heroStreet} alt="La Friterie & Food Truck" className="w-full h-full object-cover" width={1280} height={720} />
-          <div className="absolute inset-0 bg-gradient-to-t from-street-red-dark/80 via-street-red/25 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-street-red/25 to-transparent" />
           <div className="absolute inset-0 flex items-center justify-center">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="text-center">
               <KMonogram variant="cream" size={56} className="mx-auto mb-3" />
-              <h1 className="font-heading text-4xl md:text-5xl font-bold text-street-beige mb-2">
+              <h1 className="font-heading text-4xl md:text-5xl font-bold text-white mb-2 drop-shadow-lg">
                 Friterie & Food Truck
               </h1>
-              <p className="font-heading text-base italic text-street-cream">
+              <p className="font-heading text-base italic text-white/90 drop-shadow-md">
                 Made with love by Kassandra
               </p>
             </motion.div>

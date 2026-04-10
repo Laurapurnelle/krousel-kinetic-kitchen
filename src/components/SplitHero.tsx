@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Utensils, ChefHat } from "lucide-react";
+
 import heroStreet from "@/assets/hero-street.jpg";
 import heroTraiteur from "@/assets/hero-traiteur.jpg";
 import KMonogram from "./KMonogram";
@@ -40,7 +40,7 @@ const SplitHero = ({ onSelect }: SplitHeroProps) => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            <Utensils className="mx-auto mb-4 text-street-cream" size={48} />
+            <KMonogram variant="cream" size={48} className="mx-auto mb-4" />
             <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-street-beige mb-3">
               Friterie
             </h2>
@@ -83,7 +83,7 @@ const SplitHero = ({ onSelect }: SplitHeroProps) => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.6 }}
           >
-            <ChefHat className="mx-auto mb-4 text-traiteur-olive" size={48} />
+            <KMonogram variant="gold" size={48} className="mx-auto mb-4" />
             <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-traiteur-offwhite mb-3">
               Traiteur
             </h2>
