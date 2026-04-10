@@ -6,51 +6,54 @@
 
 @layer base {
   :root {
-    --background: 30 33% 89%;
-    --foreground: 30 10% 15%;
+    --background: 40 33% 94%;
+    --foreground: 20 15% 12%;
 
-    --card: 30 33% 93%;
-    --card-foreground: 30 10% 15%;
+    --card: 40 30% 96%;
+    --card-foreground: 20 15% 12%;
 
-    --popover: 30 33% 95%;
-    --popover-foreground: 30 10% 15%;
+    --popover: 40 30% 97%;
+    --popover-foreground: 20 15% 12%;
 
-    --primary: 0 80% 27%;
-    --primary-foreground: 30 33% 95%;
+    /* True red from the truck/mood board */
+    --primary: 0 78% 42%;
+    --primary-foreground: 40 30% 96%;
 
-    --secondary: 36 72% 46%;
-    --secondary-foreground: 30 33% 95%;
+    /* Cream/gold from the palette */
+    --secondary: 42 65% 75%;
+    --secondary-foreground: 20 15% 12%;
 
-    --muted: 30 20% 82%;
-    --muted-foreground: 30 10% 40%;
+    --muted: 35 20% 88%;
+    --muted-foreground: 20 10% 45%;
 
-    --accent: 50 90% 60%;
-    --accent-foreground: 30 10% 15%;
+    --accent: 42 65% 75%;
+    --accent-foreground: 20 15% 12%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 30 20% 78%;
-    --input: 30 20% 82%;
-    --ring: 0 80% 27%;
+    --border: 35 20% 84%;
+    --input: 35 20% 86%;
+    --ring: 0 78% 42%;
 
     --radius: 0.75rem;
 
-    /* Street Food palette */
-    --street-bordeaux: 0 80% 27%;
-    --street-brick: 36 72% 46%;
-    --street-yellow: 50 90% 60%;
-    --street-beige: 30 33% 89%;
+    /* Street Food / Friterie palette — true red mood board */
+    --street-red: 0 78% 42%;
+    --street-red-dark: 0 75% 30%;
+    --street-cream: 42 65% 75%;
+    --street-gold: 42 70% 58%;
+    --street-beige: 40 33% 94%;
 
-    /* Traiteur palette */
+    /* Traiteur palette (unchanged) */
     --traiteur-forest: 108 10% 14%;
     --traiteur-olive: 90 18% 56%;
     --traiteur-offwhite: 15 10% 95%;
     --traiteur-beige: 30 33% 89%;
 
     /* Glassmorphism */
-    --glass-bg: 30 33% 95% / 0.6;
-    --glass-border: 30 20% 85% / 0.3;
+    --glass-bg: 40 30% 96% / 0.6;
+    --glass-border: 35 20% 85% / 0.3;
     --glass-shadow: 0 8px 32px rgba(0,0,0,0.08);
 
     --sidebar-background: 0 0% 98%;
@@ -91,18 +94,10 @@
     @apply transition-transform duration-200 active:scale-95 hover:scale-[1.02];
   }
 
-  .text-gradient-street {
-    @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent;
-  }
-
-  .text-gradient-traiteur {
-    @apply bg-gradient-to-r from-traiteur-forest via-traiteur-olive to-traiteur-offwhite bg-clip-text text-transparent;
-  }
-
   .section-street {
-    --section-primary: var(--street-bordeaux);
-    --section-secondary: var(--street-brick);
-    --section-accent: var(--street-yellow);
+    --section-primary: var(--street-red);
+    --section-secondary: var(--street-cream);
+    --section-accent: var(--street-gold);
   }
 
   .section-traiteur {

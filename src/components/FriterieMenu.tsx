@@ -10,8 +10,6 @@ import mitrailletteImg from "@/assets/mitraillette-new.jpg";
 import bickyImg from "@/assets/bicky-burger-new.jpg";
 import saucesImg from "@/assets/sauces.jpg";
 
-// ─── DATA ────────────────────────────────────────────
-
 const categories = [
   { id: "frites", label: "Frites" },
   { id: "viandes", label: "Viandes" },
@@ -26,7 +24,6 @@ interface MenuItem {
   name: string;
   desc?: string;
   price: string;
-  image?: string;
   signature?: boolean;
 }
 
@@ -114,8 +111,6 @@ const menuData: Record<string, { hero?: { image: string; title: string; subtitle
   },
 };
 
-// ─── COMPONENT ───────────────────────────────────────
-
 const FriterieMenu = () => {
   const [activeCategory, setActiveCategory] = useState("frites");
   const data = menuData[activeCategory];
@@ -124,14 +119,13 @@ const FriterieMenu = () => {
   return (
     <section id="la-carte" className="py-20 px-6">
       <div className="container mx-auto">
-        {/* Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-10"
         >
-          <p className="font-body text-sm uppercase tracking-[0.3em] text-secondary mb-3">
+          <p className="font-body text-sm uppercase tracking-[0.3em] text-street-gold mb-3">
             La Carte
           </p>
           <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground">
@@ -156,7 +150,6 @@ const FriterieMenu = () => {
           ))}
         </div>
 
-        {/* Content */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeCategory}
@@ -166,7 +159,6 @@ const FriterieMenu = () => {
             transition={{ duration: 0.35 }}
             className="max-w-3xl mx-auto"
           >
-            {/* Hero Image */}
             {hero && (
               <div className="relative rounded-2xl overflow-hidden mb-10 h-56 md:h-72 cinematic-shadow-lg">
                 <img
@@ -177,19 +169,18 @@ const FriterieMenu = () => {
                   width={640}
                   height={640}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-street-red-dark/75 via-street-red/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                  <h3 className="font-heading text-3xl md:text-4xl font-bold text-background mb-1">
+                  <h3 className="font-heading text-3xl md:text-4xl font-bold text-street-beige mb-1">
                     {hero.title}
                   </h3>
-                  <p className="font-body text-sm text-background/70">
+                  <p className="font-body text-sm text-street-cream/80">
                     {hero.subtitle}
                   </p>
                 </div>
               </div>
             )}
 
-            {/* Items List */}
             <div className="space-y-3">
               {data.items.map((item, i) => (
                 <motion.div
@@ -207,7 +198,7 @@ const FriterieMenu = () => {
                         {item.name}
                       </h4>
                       {item.signature && (
-                        <Star size={14} className="text-street-yellow fill-street-yellow flex-shrink-0" />
+                        <Star size={14} className="text-street-gold fill-street-gold flex-shrink-0" />
                       )}
                     </div>
                     {item.desc && (

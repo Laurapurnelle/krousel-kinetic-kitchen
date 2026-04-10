@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Utensils, ChefHat } from "lucide-react";
 import heroStreet from "@/assets/hero-street.jpg";
 import heroTraiteur from "@/assets/hero-traiteur.jpg";
+import KMonogram from "./KMonogram";
 import type { Universe } from "@/pages/Index";
 
 interface SplitHeroProps {
@@ -32,25 +33,25 @@ const SplitHero = ({ onSelect }: SplitHeroProps) => {
           width={1280}
           height={720}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-street-bordeaux/80 via-street-bordeaux/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-street-red-dark/85 via-street-red/30 to-transparent" />
         <div className="relative z-10 flex flex-col items-center justify-center h-full min-h-[50vh] md:min-h-screen p-8 text-center">
           <motion.div
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            <Utensils className="mx-auto mb-4 text-street-yellow" size={48} />
+            <Utensils className="mx-auto mb-4 text-street-cream" size={48} />
             <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-street-beige mb-4">
               La Friterie
             </h2>
-            <p className="font-heading text-xl md:text-2xl italic text-street-yellow mb-6">
+            <p className="font-heading text-xl md:text-2xl italic text-street-cream mb-6">
               Itinérante
             </p>
             <p className="font-body text-sm md:text-base text-street-beige/80 max-w-sm mx-auto tracking-wide">
               Street food d'artisan. Frites au blanc de bœuf, burgers signature & snacks belges.
             </p>
             <motion.div
-              className="mt-8 inline-block border-2 border-street-yellow px-6 py-3 rounded-lg font-body text-sm font-semibold uppercase tracking-widest text-street-yellow group-hover:bg-street-yellow group-hover:text-street-bordeaux transition-all duration-300"
+              className="mt-8 inline-block border-2 border-street-cream px-6 py-3 rounded-lg font-body text-sm font-semibold uppercase tracking-widest text-street-cream group-hover:bg-street-cream group-hover:text-street-red-dark transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -103,7 +104,7 @@ const SplitHero = ({ onSelect }: SplitHeroProps) => {
         </div>
       </motion.button>
 
-      {/* Center Logo Overlay */}
+      {/* Center Logo Overlay — K Monogram */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
@@ -111,10 +112,10 @@ const SplitHero = ({ onSelect }: SplitHeroProps) => {
           transition={{ delay: 1, duration: 0.6, type: "spring" }}
           className="bg-background/90 backdrop-blur-xl rounded-full w-28 h-28 md:w-36 md:h-36 flex items-center justify-center cinematic-shadow-lg"
         >
-          <div className="text-center">
-            <span className="font-heading text-3xl md:text-4xl font-bold text-primary">K</span>
-            <p className="font-body text-[8px] md:text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-1">
-              Rousel
+          <div className="flex flex-col items-center">
+            <KMonogram variant="red" size={50} />
+            <p className="font-body text-[7px] md:text-[8px] tracking-[0.25em] uppercase text-muted-foreground -mt-1">
+              The K'rousel
             </p>
           </div>
         </motion.div>
