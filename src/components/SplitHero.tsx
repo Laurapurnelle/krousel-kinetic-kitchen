@@ -2,13 +2,24 @@ import { motion } from "framer-motion";
 import { Utensils, ChefHat } from "lucide-react";
 import heroStreet from "@/assets/hero-street.jpg";
 import heroTraiteur from "@/assets/hero-traiteur.jpg";
+import type { Universe } from "@/pages/Index";
 
-const SplitHero = () => {
+interface SplitHeroProps {
+  onSelect: (universe: Universe) => void;
+}
+
+const SplitHero = ({ onSelect }: SplitHeroProps) => {
   return (
-    <section className="relative min-h-screen flex flex-col md:flex-row overflow-hidden">
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      transition={{ duration: 0.5 }}
+      className="relative h-screen flex flex-col md:flex-row overflow-hidden"
+    >
       {/* Street Food Side */}
-      <motion.a
-        href="#street-food"
+      <motion.button
+        onClick={() => onSelect("street")}
         className="relative flex-1 group cursor-pointer overflow-hidden"
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
@@ -43,15 +54,15 @@ const SplitHero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Découvrir
+              Entrer
             </motion.div>
           </motion.div>
         </div>
-      </motion.a>
+      </motion.button>
 
       {/* Traiteur Side */}
-      <motion.a
-        href="#traiteur"
+      <motion.button
+        onClick={() => onSelect("traiteur")}
         className="relative flex-1 group cursor-pointer overflow-hidden"
         initial={{ x: 100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
@@ -90,7 +101,7 @@ const SplitHero = () => {
             </motion.div>
           </motion.div>
         </div>
-      </motion.a>
+      </motion.button>
 
       {/* Center Logo Overlay */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
@@ -108,7 +119,7 @@ const SplitHero = () => {
           </div>
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
