@@ -54,7 +54,6 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-traiteur-forest/20 to-transparent" />
           <div className="absolute inset-0 flex items-center justify-center">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="text-center">
-              <KMonogram variant="cream" size={56} className="mx-auto mb-3" />
               <p className="font-body text-sm uppercase tracking-[0.3em] text-traiteur-olive mb-3">Traiteur & Privatisation</p>
               <h1 className="font-heading text-5xl md:text-6xl font-bold text-traiteur-offwhite mb-3">L'Art de Recevoir</h1>
               <p className="font-body text-base text-traiteur-offwhite/80 max-w-lg mx-auto">
@@ -62,6 +61,17 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
               </p>
             </motion.div>
           </div>
+        </div>
+        {/* Logo at the junction */}
+        <div className="flex justify-center -mt-10 relative z-10">
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.5, type: "spring" }}
+            className="bg-background/90 backdrop-blur-xl rounded-full w-20 h-20 flex items-center justify-center cinematic-shadow-lg"
+          >
+            <KMonogram variant="dark" size={44} />
+          </motion.div>
         </div>
       </section>
 

@@ -35,14 +35,13 @@ const StreetFoodPage = ({ onBack }: StreetFoodPageProps) => {
         </div>
       </nav>
 
-      {/* Hero with blur transition like traiteur */}
+      {/* Hero with logo at the junction between photo and blur */}
       <section className="relative pt-16">
         <div className="relative h-[45vh] overflow-hidden">
           <img src={heroStreet} alt="La Friterie & Food Truck" className="w-full h-full object-cover" width={1280} height={720} />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-street-red/25 to-transparent" />
           <div className="absolute inset-0 flex items-center justify-center">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="text-center">
-              <KMonogram variant="cream" size={56} className="mx-auto mb-3" />
               <h1 className="font-heading text-4xl md:text-5xl font-bold text-white mb-2 drop-shadow-lg">
                 Friterie & Food Truck
               </h1>
@@ -52,15 +51,29 @@ const StreetFoodPage = ({ onBack }: StreetFoodPageProps) => {
             </motion.div>
           </div>
         </div>
+        {/* Logo at the junction */}
+        <div className="flex justify-center -mt-10 relative z-10">
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.5, type: "spring" }}
+            className="bg-background/90 backdrop-blur-xl rounded-full w-20 h-20 flex items-center justify-center cinematic-shadow-lg"
+          >
+            <KMonogram variant="red" size={44} />
+          </motion.div>
+        </div>
       </section>
 
-      {/* Food Truck Location — directly under hero */}
-      <section className="py-10 px-6 bg-gradient-to-b from-primary/8 to-transparent">
+      {/* Menu */}
+      <FriterieMenu />
+
+      {/* Food Truck Location — just above footer */}
+      <section className="py-10 px-6 bg-gradient-to-b from-transparent to-primary/8">
         <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             className="flex items-center justify-center gap-2 mb-6"
           >
             <MapPin className="text-primary" size={18} />
@@ -71,9 +84,6 @@ const StreetFoodPage = ({ onBack }: StreetFoodPageProps) => {
           <LocationWidget />
         </div>
       </section>
-
-      {/* Menu */}
-      <FriterieMenu />
 
       {/* Footer */}
       <footer className="bg-primary py-12 px-6 text-center">
