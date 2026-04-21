@@ -3,7 +3,7 @@ import { ChevronDown } from "lucide-react";
 
 import heroStreet from "@/assets/hero-street.jpg";
 import heroTraiteur from "@/assets/hero-traiteur.jpg";
-import logoKrousel from "@/assets/logo-krousel-beige.svg";
+import logoKrouselTypo from "@/assets/logo-krousel-typo-beige.svg";
 import type { Universe } from "@/pages/Index";
 
 interface SplitHeroProps {
@@ -42,7 +42,6 @@ const SplitHero = ({ onSelect }: SplitHeroProps) => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            <img src={logoKrousel} alt="K'rousel" className="h-14 w-auto mx-auto mb-4 drop-shadow-lg" />
             <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-street-beige mb-3">
               Friterie
             </h2>
@@ -86,7 +85,6 @@ const SplitHero = ({ onSelect }: SplitHeroProps) => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.6 }}
           >
-            <img src={logoKrousel} alt="K'rousel" className="h-14 w-auto mx-auto mb-4 drop-shadow-lg" />
             <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-traiteur-offwhite mb-3">
               Traiteur
             </h2>
@@ -106,6 +104,21 @@ const SplitHero = ({ onSelect }: SplitHeroProps) => {
           </motion.div>
         </div>
       </motion.button>
+
+      {/* Centered "THE K'ROUSEL" wordmark on the split junction */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9, y: -10 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ delay: 0.9, duration: 0.7, ease: "easeOut" }}
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none w-[80%] md:w-[55%] lg:w-[45%] max-w-[640px] px-4"
+        aria-hidden="true"
+      >
+        <img
+          src={logoKrouselTypo}
+          alt="THE K'ROUSEL"
+          className="w-full h-auto drop-shadow-[0_4px_20px_rgba(0,0,0,0.55)]"
+        />
+      </motion.div>
 
       {/* Scroll hint — shown on mobile where sections stack vertically */}
       <motion.div
