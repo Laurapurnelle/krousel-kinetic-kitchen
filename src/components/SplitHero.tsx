@@ -4,6 +4,7 @@ import heroStreet from "@/assets/hero-street.jpg";
 import heroTraiteur from "@/assets/hero-traiteur.jpg";
 import KMonogram from "./KMonogram";
 import logoKrousel from "@/assets/logo-krousel-beige.svg";
+import logoBordeaux from "@/assets/logo-krousel-bordeaux.svg";
 import type { Universe } from "@/pages/Index";
 
 interface SplitHeroProps {
@@ -42,7 +43,7 @@ const SplitHero = ({ onSelect }: SplitHeroProps) => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            <KMonogram variant="cream" size={48} className="mx-auto mb-4" />
+            <img src={logoKrousel} alt="K'rousel" className="h-14 w-auto mx-auto mb-4 drop-shadow-lg" />
             <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-street-beige mb-3">
               Friterie
             </h2>
@@ -113,10 +114,10 @@ const SplitHero = ({ onSelect }: SplitHeroProps) => {
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 1, duration: 0.6, type: "spring" }}
-          className="rounded-full w-32 h-32 md:w-44 md:h-44 flex items-center justify-center cinematic-shadow-lg"
+          className="bg-street-beige rounded-full w-32 h-32 md:w-44 md:h-44 flex items-center justify-center cinematic-shadow-lg p-5"
         >
           <img
-            src={logoKrousel}
+            src={logoBordeaux}
             alt="The K'rousel"
             className="w-full h-full object-contain drop-shadow-2xl"
           />
