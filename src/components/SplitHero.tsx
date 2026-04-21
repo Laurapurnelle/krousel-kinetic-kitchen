@@ -110,13 +110,13 @@ const SplitHero = ({ onSelect }: SplitHeroProps) => {
         initial={{ opacity: 0, scale: 0.9, y: -10 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ delay: 0.9, duration: 0.7, ease: "easeOut" }}
-        className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 md:top-[18%] md:translate-y-0 z-20 pointer-events-none w-[88%] md:w-[60%] lg:w-[50%] max-w-[680px] px-4"
+        className="absolute left-0 right-0 top-1/2 -translate-y-1/2 md:top-[18%] md:translate-y-0 z-20 pointer-events-none flex justify-center px-4"
         aria-hidden="true"
       >
         <img
           src={logoKrouselTypo}
           alt="THE K'ROUSEL"
-          className="w-full h-auto drop-shadow-[0_4px_20px_rgba(0,0,0,0.55)]"
+          className="w-[70%] sm:w-[60%] md:w-[55%] lg:w-[45%] max-w-[640px] h-auto drop-shadow-[0_4px_20px_rgba(0,0,0,0.55)]"
         />
       </motion.div>
 
