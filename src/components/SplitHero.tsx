@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import heroStreet from "@/assets/hero-street.jpg";
 import heroTraiteur from "@/assets/hero-traiteur.jpg";
 import logoKrousel from "@/assets/logo-krousel-beige.svg";
-import logoBordeaux from "@/assets/logo-krousel-bordeaux.svg";
 import type { Universe } from "@/pages/Index";
 
 interface SplitHeroProps {
@@ -106,22 +105,6 @@ const SplitHero = ({ onSelect }: SplitHeroProps) => {
           </motion.div>
         </div>
       </motion.button>
-
-      {/* Center Logo */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
-        <motion.div
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 1, duration: 0.6, type: "spring" }}
-          className="bg-street-beige rounded-full w-32 h-32 md:w-44 md:h-44 flex items-center justify-center cinematic-shadow-lg p-5"
-        >
-          <img
-            src={logoBordeaux}
-            alt="The K'rousel"
-            className="w-full h-full object-contain drop-shadow-2xl"
-          />
-        </motion.div>
-      </div>
     </motion.section>
   );
 };
