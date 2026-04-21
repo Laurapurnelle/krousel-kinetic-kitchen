@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import heroStreet from "@/assets/hero-street.jpg";
 import heroTraiteur from "@/assets/hero-traiteur.jpg";
 import KMonogram from "./KMonogram";
+import logoKrousel from "@/assets/logo-krousel-beige.svg";
 import type { Universe } from "@/pages/Index";
 
 interface SplitHeroProps {
@@ -33,7 +34,8 @@ const SplitHero = ({ onSelect }: SplitHeroProps) => {
           width={1280}
           height={720}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-street-red-dark/85 via-street-red/30 to-transparent" />
+        <div className="absolute inset-0 bg-street-red-dark/55" />
+        <div className="absolute inset-0 bg-gradient-to-t from-street-red-dark/90 via-street-red-dark/40 to-street-red-dark/30" />
         <div className="relative z-10 flex flex-col items-center justify-center h-full min-h-[50vh] md:min-h-screen p-8 text-center">
           <motion.div
             initial={{ y: 30, opacity: 0 }}
@@ -76,7 +78,8 @@ const SplitHero = ({ onSelect }: SplitHeroProps) => {
           width={1280}
           height={720}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-traiteur-forest/80 via-traiteur-forest/30 to-transparent" />
+        <div className="absolute inset-0 bg-traiteur-forest/55" />
+        <div className="absolute inset-0 bg-gradient-to-t from-traiteur-forest/90 via-traiteur-forest/40 to-traiteur-forest/30" />
         <div className="relative z-10 flex flex-col items-center justify-center h-full min-h-[50vh] md:min-h-screen p-8 text-center">
           <motion.div
             initial={{ y: 30, opacity: 0 }}
@@ -110,14 +113,13 @@ const SplitHero = ({ onSelect }: SplitHeroProps) => {
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 1, duration: 0.6, type: "spring" }}
-          className="bg-background/90 backdrop-blur-xl rounded-full w-28 h-28 md:w-36 md:h-36 flex items-center justify-center cinematic-shadow-lg"
+          className="rounded-full w-32 h-32 md:w-44 md:h-44 flex items-center justify-center cinematic-shadow-lg"
         >
-          <div className="flex flex-col items-center">
-            <KMonogram variant="red" size={50} />
-            <p className="font-body text-[7px] md:text-[8px] tracking-[0.25em] uppercase text-muted-foreground -mt-1">
-              The K'rousel
-            </p>
-          </div>
+          <img
+            src={logoKrousel}
+            alt="The K'rousel"
+            className="w-full h-full object-contain drop-shadow-2xl"
+          />
         </motion.div>
       </div>
     </motion.section>
