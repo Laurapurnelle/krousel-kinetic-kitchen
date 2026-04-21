@@ -4,6 +4,10 @@ import LocationWidget from "./LocationWidget";
 import FriterieMenu from "./FriterieMenu";
 import KMonogram from "./KMonogram";
 import heroStreet from "@/assets/hero-street.jpg";
+import logoBordeaux from "@/assets/logo-krousel-bordeaux.svg";
+import logoBeige from "@/assets/logo-krousel-beige.svg";
+import logoJaune from "@/assets/logo-krousel-jaune.svg";
+import logoTypo from "@/assets/logo-krousel-typo.svg";
 
 interface StreetFoodPageProps {
   onBack: () => void;
@@ -21,13 +25,10 @@ const StreetFoodPage = ({ onBack }: StreetFoodPageProps) => {
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 glass-card-strong border-b-2 border-primary/20">
         <div className="container mx-auto flex items-center justify-between px-6 py-3">
-          <button onClick={onBack} className="flex items-center gap-2 text-primary font-body text-sm font-medium btn-bounce">
-            <KMonogram variant="red" size={28} />
+          <button onClick={onBack} className="flex items-center gap-2 btn-bounce" aria-label="Retour à l'accueil">
+            <img src={logoBordeaux} alt="K'rousel" className="h-8 w-auto" />
           </button>
-          <div className="flex items-center gap-2">
-            <KMonogram variant="red" size={28} />
-            <span className="font-heading text-lg font-bold text-primary">THE K'ROUSEL</span>
-          </div>
+          <img src={logoTypo} alt="THE K'ROUSEL" className="h-6 w-auto hidden sm:block" />
           <a href="#la-carte" className="hidden md:block font-body text-sm text-muted-foreground hover:text-primary transition-colors">
             La Carte
           </a>
@@ -56,9 +57,9 @@ const StreetFoodPage = ({ onBack }: StreetFoodPageProps) => {
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.5, type: "spring" }}
-            className="bg-background/90 backdrop-blur-xl rounded-full w-20 h-20 flex items-center justify-center cinematic-shadow-lg"
+            className="bg-background/95 backdrop-blur-xl rounded-full w-24 h-24 flex items-center justify-center cinematic-shadow-lg p-3"
           >
-            <KMonogram variant="red" size={44} />
+            <img src={logoBordeaux} alt="K'rousel" className="w-full h-full object-contain" />
           </motion.div>
         </div>
       </section>
@@ -86,8 +87,8 @@ const StreetFoodPage = ({ onBack }: StreetFoodPageProps) => {
 
       {/* Footer */}
       <footer className="bg-primary py-12 px-6 text-center">
-        <KMonogram variant="cream" size={40} className="mx-auto mb-3" />
-        <p className="font-heading text-2xl font-bold text-primary-foreground mb-1">THE K'ROUSEL</p>
+        <img src={logoJaune} alt="K'rousel" className="h-12 w-auto mx-auto mb-3" />
+        <p className="font-heading text-2xl font-bold text-street-beige mb-1">THE K'ROUSEL</p>
         <p className="font-heading text-sm italic text-street-cream/80">Made with love by Kassandra</p>
         <p className="font-body text-xs text-primary-foreground/50 mt-1">Friterie & Food Truck — Liège, Belgique</p>
         <p className="font-body text-xs text-primary-foreground/30 mt-4">© {new Date().getFullYear()} THE K'ROUSEL</p>
