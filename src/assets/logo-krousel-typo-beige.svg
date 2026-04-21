@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Calque_2" data-name="Calque 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 728.83 102.26">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: Fraunces-9ptBlack, Fraunces;
+        font-size: 87.57px;
+        font-variation-settings: 'opsz' 9, 'wght' 900, 'SOFT' 0, 'WONK' 1;
+        font-weight: 800;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #efe3d3;
+      }
+    </style>
+  </defs>
+  <g id="Calque_1-2" data-name="Calque 1">
+    <g>
+      <text class="cls-1" transform="translate(0 75.59)"><tspan x="0" y="0" xml:space="preserve">THE      ‘ROUSEL</tspan></text>
+      <path class="cls-2" d="M305.71,3.22c-1.94,14.42-10.92,26.96-23.28,34.41,13.88,7.98,22.17,21.92,22.3,37.89-10.56,0-7.71,1.41-10.6-8.31-2.87-9.08-9.57-16.78-18.21-20.79-3.86-1.79-5.51-7.79-12.19-3.47h-.01c.1-.81.4-.77.47-.6-.49,1.71-10.3-6.27-11.25-7.06,6.54,1.97-1.31-.84,5.46-1.07,18.73.14,35.11-14.32,37.92-32.73"/>
+      <path class="cls-2" d="M288.02,52.12c-16.83,8.2-26.77,12.05-48.05,19.53,0-9.31-.25-13.9-.19-27.55,13.39,7.34,27.82,8.68,43.05,9.51.29-.87.12.06.31-.99-17.12-6.67-32.16-17.12-45.06-30.48.44-7.63,1.76-14.85,3.87-22.14,9.42,21.05,24.12,40.25,44.77,51.08"/>
+    </g>
+  </g>
+</svg>
