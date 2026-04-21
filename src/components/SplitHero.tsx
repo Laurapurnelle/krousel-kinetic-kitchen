@@ -105,6 +105,21 @@ const SplitHero = ({ onSelect }: SplitHeroProps) => {
         </div>
       </motion.button>
 
+      {/* Centered "THE K'ROUSEL" wordmark on the split junction */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9, y: -10 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ delay: 0.9, duration: 0.7, ease: "easeOut" }}
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none w-[80%] md:w-[55%] lg:w-[45%] max-w-[640px] px-4"
+        aria-hidden="true"
+      >
+        <img
+          src={logoKrouselTypo}
+          alt="THE K'ROUSEL"
+          className="w-full h-auto drop-shadow-[0_4px_20px_rgba(0,0,0,0.55)]"
+        />
+      </motion.div>
+
       {/* Scroll hint — shown on mobile where sections stack vertically */}
       <motion.div
         initial={{ opacity: 0, y: -10 }}
