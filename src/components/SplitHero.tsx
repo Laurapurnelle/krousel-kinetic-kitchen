@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import heroStreet from "@/assets/hero-street.jpg";
 import heroTraiteur from "@/assets/hero-traiteur.jpg";
 import logoKrousel from "@/assets/logo-krousel-beige.svg";
-import logoBordeaux from "@/assets/logo-krousel-bordeaux.svg";
 import type { Universe } from "@/pages/Index";
 
 interface SplitHeroProps {
