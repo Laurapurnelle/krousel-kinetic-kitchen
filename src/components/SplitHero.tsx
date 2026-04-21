@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 
 import heroStreet from "@/assets/hero-street.jpg";
 import heroTraiteur from "@/assets/hero-traiteur.jpg";
-import KMonogram from "./KMonogram";
 import logoKrousel from "@/assets/logo-krousel-beige.svg";
 import logoBordeaux from "@/assets/logo-krousel-bordeaux.svg";
 import type { Universe } from "@/pages/Index";
@@ -87,7 +86,7 @@ const SplitHero = ({ onSelect }: SplitHeroProps) => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.6 }}
           >
-            <KMonogram variant="gold" size={48} className="mx-auto mb-4" />
+            <img src={logoKrousel} alt="K'rousel" className="h-14 w-auto mx-auto mb-4 drop-shadow-lg" />
             <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-traiteur-offwhite mb-3">
               Traiteur
             </h2>
