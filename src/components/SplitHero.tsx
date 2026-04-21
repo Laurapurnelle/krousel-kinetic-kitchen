@@ -106,6 +106,26 @@ const SplitHero = ({ onSelect }: SplitHeroProps) => {
           </motion.div>
         </div>
       </motion.button>
+
+      {/* Scroll hint — shown on mobile where sections stack vertically */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.2, duration: 0.6 }}
+        className="md:hidden absolute left-1/2 -translate-x-1/2 bottom-6 z-30 pointer-events-none flex flex-col items-center gap-1"
+        aria-hidden="true"
+      >
+        <span className="font-body text-[10px] uppercase tracking-[0.3em] text-street-beige/80 drop-shadow">
+          Défiler
+        </span>
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+          className="w-9 h-9 rounded-full bg-street-beige/15 backdrop-blur-sm border border-street-beige/40 flex items-center justify-center"
+        >
+          <ChevronDown className="text-street-beige" size={18} strokeWidth={2.5} />
+        </motion.div>
+      </motion.div>
     </motion.section>
   );
 };
