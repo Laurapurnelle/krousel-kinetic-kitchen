@@ -3,7 +3,7 @@ import { ChevronDown } from "lucide-react";
 
 import heroStreet from "@/assets/hero-street.jpg";
 import heroTraiteur from "@/assets/hero-traiteur.jpg";
-import logoKrousel from "@/assets/logo-krousel-beige.svg";
+import logoKrouselTypo from "@/assets/logo-krousel-typo-beige.svg";
 import type { Universe } from "@/pages/Index";
 
 interface SplitHeroProps {
@@ -42,7 +42,6 @@ const SplitHero = ({ onSelect }: SplitHeroProps) => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            <img src={logoKrousel} alt="K'rousel" className="h-14 w-auto mx-auto mb-4 drop-shadow-lg" />
             <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-street-beige mb-3">
               Friterie
             </h2>
