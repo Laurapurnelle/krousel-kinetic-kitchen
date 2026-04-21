@@ -85,7 +85,6 @@ const SplitHero = ({ onSelect }: SplitHeroProps) => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.6 }}
           >
-            <img src={logoKrousel} alt="K'rousel" className="h-14 w-auto mx-auto mb-4 drop-shadow-lg" />
             <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-traiteur-offwhite mb-3">
               Traiteur
             </h2>
