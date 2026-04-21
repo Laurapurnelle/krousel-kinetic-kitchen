@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 
 import heroStreet from "@/assets/hero-street.jpg";
 import heroTraiteur from "@/assets/hero-traiteur.jpg";
