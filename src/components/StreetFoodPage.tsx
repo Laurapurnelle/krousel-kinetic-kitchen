@@ -57,7 +57,7 @@ const StreetFoodPage = ({ onBack }: StreetFoodPageProps) => {
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.5, type: "spring" }}
-            className="bg-background/95 backdrop-blur-xl rounded-full w-24 h-24 flex items-center justify-center cinematic-shadow-lg p-3"
+            className="bg-street-beige rounded-full w-24 h-24 flex items-center justify-center cinematic-shadow-lg p-4 ring-2 ring-primary/10"
           >
             <img src={logoBordeaux} alt="K'rousel" className="w-full h-full object-contain" />
           </motion.div>
