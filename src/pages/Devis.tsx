@@ -1,30 +1,15 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Phone, ArrowLeft } from "lucide-react";
+import { Mail, Phone, ArrowLeft } from "lucide-react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
 import logoTraiteurVert from "@/assets/logo-traiteur-vert-fonce.svg";
-
-const motifOptions = [
-  { value: "traiteur-mariage", label: "Traiteur — Mariage" },
-  { value: "traiteur-corporate", label: "Traiteur — Événement d'entreprise" },
-  { value: "traiteur-prive", label: "Traiteur — Fête privée" },
-  { value: "traiteur-autre", label: "Traiteur — Autre événement" },
-  { value: "foodtruck-mariage", label: "Food Truck — Mariage" },
-  { value: "foodtruck-corporate", label: "Food Truck — Événement d'entreprise" },
-  { value: "foodtruck-festival", label: "Food Truck — Festival / Marché" },
-  { value: "foodtruck-anniversaire", label: "Food Truck — Anniversaire" },
-  { value: "foodtruck-prive", label: "Food Truck — Fête privée" },
-  { value: "autre", label: "Autre demande" },
-];
 
 const Devis = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const defaultMotif = searchParams.get("motif") || "";
+  const defaultMotif = searchParams.get("motif") || "Votre demande";
 
   const [formData, setFormData] = useState({
     name: "",
@@ -39,11 +24,11 @@ const Devis = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.phone || !formData.motif) {
-      toast.error("Merci d'indiquer au moins votre nom, votre téléphone et le motif.");
+    if (!formData.name || !formData.phone || !formData.email) {
+      toast.error("Merci d'indiquer votre nom, votre téléphone et votre adresse email.");
       return;
     }
-    toast.success("Demande envoyée ! Kassandra vous appellera sous 48h.");
+    toast.success("Demande envoyée ! Vérifiez votre boîte mail pour la suite.");
     navigate("/devis/merci");
   };
 
@@ -75,7 +60,7 @@ const Devis = () => {
               Parlons de votre projet
             </h1>
             <p className="font-body text-base text-muted-foreground">
-              Pas besoin de tout détailler ici. Laissez-nous quelques infos et <span className="font-semibold text-traiteur-forest">Kassandra vous appellera sous 48h</span> pour discuter ensemble de votre événement. Le devis vous sera envoyé après ce premier échange.
+              Laissez simplement vos coordonnées. Nous vous recontactons ensuite par email avec le document à compléter pour finaliser votre demande de devis.
             </p>
           </motion.div>
 
@@ -88,14 +73,14 @@ const Devis = () => {
           >
             <div className="flex items-start gap-3">
               <div className="shrink-0 w-9 h-9 rounded-full bg-traiteur-forest/10 flex items-center justify-center">
-                <Phone size={16} className="text-traiteur-forest" />
+                <Mail size={16} className="text-traiteur-forest" />
               </div>
               <div>
                 <p className="font-heading text-sm font-semibold text-traiteur-forest mb-2">Comment ça se passe</p>
                 <ol className="font-body text-xs text-muted-foreground space-y-1.5 list-decimal list-inside">
-                  <li>Vous laissez vos coordonnées et le motif (les autres champs sont optionnels).</li>
-                  <li>Kassandra vous appelle sous 48h pour discuter en détail de votre événement.</li>
-                  <li>Vous recevez ensuite un devis personnalisé par email.</li>
+                  <li>Vous laissez votre nom, votre téléphone et votre adresse email.</li>
+                  <li>Vous recevez automatiquement par email le document PDF à compléter pour votre devis final.</li>
+                  <li>Dès réception du PDF complété, nous revenons vers vous sous 48h.</li>
                 </ol>
               </div>
             </div>
@@ -108,21 +93,6 @@ const Devis = () => {
             className="glass-card rounded-2xl p-6 md:p-8"
           >
             <form onSubmit={handleSubmit} className="space-y-5">
-                {/* Motif du contact */}
-                <div>
-                  <label className="font-body text-xs font-medium text-foreground mb-1.5 block">Motif du contact *</label>
-                  <Select value={formData.motif} onValueChange={(v) => setFormData(p => ({ ...p, motif: v }))}>
-                    <SelectTrigger className="bg-background/50 border-traiteur-forest/20 focus:ring-traiteur-forest">
-                      <SelectValue placeholder="Pourquoi nous contactez-vous ?" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {motifOptions.map(opt => (
-                        <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="font-body text-xs font-medium text-foreground mb-1.5 block">Nom complet *</label>
@@ -151,7 +121,7 @@ const Devis = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="font-body text-xs font-medium text-foreground mb-1.5 block">Email <span className="text-muted-foreground/60 normal-case">(optionnel)</span></label>
+                    <label className="font-body text-xs font-medium text-foreground mb-1.5 block">Adresse email *</label>
                     <Input
                       type="email"
                       value={formData.email}
@@ -159,64 +129,9 @@ const Devis = () => {
                       placeholder="votre@email.be"
                       className="bg-background/50 border-traiteur-forest/20 focus-visible:ring-traiteur-forest"
                       maxLength={255}
+                      required
                     />
                   </div>
-                  <div>
-                    <label className="font-body text-xs font-medium text-foreground mb-1.5 block">Nombre de convives <span className="text-muted-foreground/60 normal-case">(estimation)</span></label>
-                    <Select value={formData.guests} onValueChange={(v) => setFormData(p => ({ ...p, guests: v }))}>
-                      <SelectTrigger className="bg-background/50 border-traiteur-forest/20 focus:ring-traiteur-forest">
-                        <SelectValue placeholder="Si vous le savez déjà" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="10-30">10 – 30</SelectItem>
-                        <SelectItem value="30-50">30 – 50</SelectItem>
-                        <SelectItem value="50-100">50 – 100</SelectItem>
-                        <SelectItem value="100-150">100 – 150</SelectItem>
-                        <SelectItem value="150-200">150 – 200</SelectItem>
-                        <SelectItem value="200-300">200 – 300</SelectItem>
-                        <SelectItem value="300+">300+</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="font-body text-xs font-medium text-foreground mb-1.5 block">Date souhaitée <span className="text-muted-foreground/60 normal-case">(si connue)</span></label>
-                    <Input
-                      type="date"
-                      value={formData.date}
-                      onChange={(e) => setFormData(p => ({ ...p, date: e.target.value }))}
-                      className="bg-background/50 border-traiteur-forest/20 focus-visible:ring-traiteur-forest"
-                    />
-                  </div>
-                  <div>
-                    <label className="font-body text-xs font-medium text-foreground mb-1.5 block">Lieu de l'événement <span className="text-muted-foreground/60 normal-case">(optionnel)</span></label>
-                    <Input
-                      value={formData.location}
-                      onChange={(e) => setFormData(p => ({ ...p, location: e.target.value }))}
-                      placeholder="Ville ou adresse"
-                      className="bg-background/50 border-traiteur-forest/20 focus-visible:ring-traiteur-forest"
-                      maxLength={200}
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="font-body text-xs font-medium text-foreground mb-1.5 block">
-                    Votre projet & disponibilités pour être rappelé(e) <span className="text-muted-foreground/60 normal-case">(important)</span>
-                  </label>
-                  <Textarea
-                    value={formData.message}
-                    onChange={(e) => setFormData(p => ({ ...p, message: e.target.value }))}
-                    placeholder="Indiquez une plage horaire où vous êtes joignable (ex. en semaine entre 14h et 18h), puis quelques mots sur votre projet si vous le souhaitez."
-                    className="bg-background/50 border-traiteur-forest/20 focus-visible:ring-traiteur-forest min-h-[100px]"
-                    maxLength={1000}
-                    rows={4}
-                  />
-                  <p className="font-body text-[11px] text-muted-foreground mt-1.5">
-                    Précisez vos disponibilités pour qu'on soit sûrs de vous joindre du premier coup.
-                  </p>
                 </div>
 
                 <motion.button
@@ -226,10 +141,10 @@ const Devis = () => {
                   className="w-full flex items-center justify-center gap-2 bg-traiteur-forest text-traiteur-offwhite px-8 py-4 rounded-xl font-body text-sm font-semibold uppercase tracking-widest cinematic-shadow btn-bounce mt-2"
                 >
                   <Phone size={16} />
-                  Être rappelé(e) par Kassandra
+                  Recevoir le document de devis
                 </motion.button>
                 <p className="font-body text-[11px] text-muted-foreground text-center -mt-1">
-                  Seuls le nom, le téléphone et le motif sont obligatoires.
+                  Nous utiliserons ces coordonnées pour vous envoyer la suite par email et vous recontacter si nécessaire.
                 </p>
             </form>
           </motion.div>
