@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CheckCircle, ArrowLeft, Mail, Clock } from "lucide-react";
+import { CheckCircle, ArrowLeft, Mail, Phone } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import logoTraiteurVert from "@/assets/logo-traiteur-vert-fonce.svg";
 
@@ -46,18 +46,18 @@ const MerciDevis = () => {
               Merci pour votre confiance
             </h1>
             <p className="font-body text-base text-muted-foreground mb-8 max-w-lg mx-auto">
-              Votre demande de devis a bien été transmise à <span className="font-semibold text-traiteur-forest">Kassandra</span>.
-              Elle prendra connaissance de votre projet avec la plus grande attention.
+              Votre demande a bien été transmise à <span className="font-semibold text-traiteur-forest">Kassandra</span>.
+              Elle vous appellera personnellement sous 48h pour discuter de votre événement, puis vous enverra un devis sur mesure.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 text-left">
               <div className="rounded-2xl border border-traiteur-forest/15 bg-background/40 p-5">
                 <div className="flex items-center gap-2 mb-2">
-                  <Clock size={18} className="text-traiteur-forest" />
-                  <p className="font-heading text-sm font-semibold text-traiteur-forest">Réponse sous 48h</p>
+                  <Phone size={18} className="text-traiteur-forest" />
+                  <p className="font-heading text-sm font-semibold text-traiteur-forest">Appel sous 48h</p>
                 </div>
                 <p className="font-body text-xs text-muted-foreground leading-relaxed">
-                  Vous recevrez un retour personnalisé par email dans un délai maximum de 48 heures (jours ouvrables).
+                  Kassandra vous téléphone pour cerner vos envies, puis vous envoie un devis personnalisé par email.
                 </p>
               </div>
               <div className="rounded-2xl border border-traiteur-forest/15 bg-background/40 p-5">
