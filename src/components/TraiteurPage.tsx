@@ -117,10 +117,18 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
-                className="glass-card rounded-2xl p-6 text-left hover-lift"
+                className={`rounded-2xl p-6 text-left border cinematic-shadow ${
+                  i === 1
+                    ? "bg-traiteur-olive/20 border-traiteur-olive/40"
+                    : "bg-traiteur-forest border-traiteur-forest/80"
+                }`}
               >
-                <h3 className="font-heading text-lg font-semibold text-traiteur-forest mb-2">{item.title}</h3>
-                <p className="font-body text-sm text-muted-foreground">{item.desc}</p>
+                <h3 className={`font-heading text-lg font-semibold mb-2 ${i === 1 ? "text-traiteur-forest" : "text-traiteur-offwhite"}`}>
+                  {item.title}
+                </h3>
+                <p className={`font-body text-sm ${i === 1 ? "text-traiteur-forest/80" : "text-traiteur-offwhite/80"}`}>
+                  {item.desc}
+                </p>
               </motion.div>
             ))}
           </div>
