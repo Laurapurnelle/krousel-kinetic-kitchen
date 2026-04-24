@@ -31,9 +31,6 @@ const StreetFoodPage = ({ onBack }: StreetFoodPageProps) => {
             <img src={logoBordeaux} alt="K'rousel" className="h-8 w-auto" />
           </button>
           <div className="flex items-center gap-3">
-            <a href="#la-carte" className="font-body text-sm text-muted-foreground hover:text-primary transition-colors">
-              La Carte
-            </a>
             <Link
               to={user ? "/profil" : "/auth"}
               aria-label={user ? "Mon profil" : "Se connecter"}
@@ -46,7 +43,7 @@ const StreetFoodPage = ({ onBack }: StreetFoodPageProps) => {
         </div>
       </nav>
 
-      {/* Hero with logo at the junction between photo and blur */}
+      {/* Hero */}
       <section className="relative pt-16">
         <div className="relative h-[45vh] overflow-hidden">
           <img src={heroStreet} alt="La Friterie & Food Truck" className="w-full h-full object-cover" width={1280} height={720} />
@@ -61,17 +58,6 @@ const StreetFoodPage = ({ onBack }: StreetFoodPageProps) => {
               </p>
             </motion.div>
           </div>
-        </div>
-        {/* Logo at the junction — pulled higher to overlap the hero photo */}
-        <div className="flex justify-center -mt-16 md:-mt-20 relative z-10">
-          <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.5, type: "spring" }}
-            className="bg-street-beige rounded-full w-28 h-28 md:w-32 md:h-32 flex items-center justify-center cinematic-shadow-lg p-5 ring-2 ring-primary/10"
-          >
-            <img src={logoBordeaux} alt="K'rousel" className="w-full h-full object-contain" />
-          </motion.div>
         </div>
       </section>
 
