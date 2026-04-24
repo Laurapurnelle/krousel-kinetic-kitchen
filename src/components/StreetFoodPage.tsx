@@ -1,19 +1,22 @@
 import { motion } from "framer-motion";
-import { MapPin } from "lucide-react";
+import { MapPin, User } from "lucide-react";
+import { Link } from "react-router-dom";
 import LocationWidget from "./LocationWidget";
 import FriterieMenu from "./FriterieMenu";
 import KMonogram from "./KMonogram";
+import CartDrawer from "./CartDrawer";
 import heroStreet from "@/assets/hero-street.jpg";
 import logoBordeaux from "@/assets/logo-krousel-bordeaux.svg";
 import logoBeige from "@/assets/logo-krousel-beige.svg";
 import logoJaune from "@/assets/logo-krousel-jaune.svg";
-import logoTypo from "@/assets/logo-krousel-typo.svg";
+import { useAuth } from "@/context/AuthContext";
 
 interface StreetFoodPageProps {
   onBack: () => void;
 }
 
 const StreetFoodPage = ({ onBack }: StreetFoodPageProps) => {
+  const { user } = useAuth();
   return (
     <motion.div
       initial={{ opacity: 0, x: -60 }}
@@ -28,9 +31,19 @@ const StreetFoodPage = ({ onBack }: StreetFoodPageProps) => {
           <button onClick={onBack} className="flex items-center gap-2 btn-bounce" aria-label="Retour à l'accueil">
             <img src={logoBordeaux} alt="K'rousel" className="h-8 w-auto" />
           </button>
-          <a href="#la-carte" className="font-body text-sm text-muted-foreground hover:text-primary transition-colors">
-            La Carte
-          </a>
+          <div className="flex items-center gap-3">
+            <a href="#la-carte" className="font-body text-sm text-muted-foreground hover:text-primary transition-colors">
+              La Carte
+            </a>
+            <Link
+              to={user ? "/profil" : "/auth"}
+              aria-label={user ? "Mon profil" : "Se connecter"}
+              className="w-10 h-10 rounded-full bg-muted/60 hover:bg-muted flex items-center justify-center transition-colors"
+            >
+              <User size={18} className="text-primary" />
+            </Link>
+            <CartDrawer />
+          </div>
         </div>
       </nav>
 
