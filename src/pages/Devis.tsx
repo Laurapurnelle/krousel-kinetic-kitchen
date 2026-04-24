@@ -203,15 +203,20 @@ const Devis = () => {
                 </div>
 
                 <div>
-                  <label className="font-body text-xs font-medium text-foreground mb-1.5 block">Un mot sur votre projet <span className="text-muted-foreground/60 normal-case">(optionnel)</span></label>
+                  <label className="font-body text-xs font-medium text-foreground mb-1.5 block">
+                    Votre projet & disponibilités pour être rappelé(e) <span className="text-muted-foreground/60 normal-case">(important)</span>
+                  </label>
                   <Textarea
                     value={formData.message}
                     onChange={(e) => setFormData(p => ({ ...p, message: e.target.value }))}
-                    placeholder="Une idée, un thème, une contrainte... ou rien du tout — on en parlera au téléphone."
+                    placeholder="Indiquez une plage horaire où vous êtes joignable (ex. en semaine entre 14h et 18h), puis quelques mots sur votre projet si vous le souhaitez."
                     className="bg-background/50 border-traiteur-forest/20 focus-visible:ring-traiteur-forest min-h-[100px]"
                     maxLength={1000}
-                    rows={3}
+                    rows={4}
                   />
+                  <p className="font-body text-[11px] text-muted-foreground mt-1.5">
+                    Précisez vos disponibilités pour qu'on soit sûrs de vous joindre du premier coup.
+                  </p>
                 </div>
 
                 <motion.button
