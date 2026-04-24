@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, Instagram, Mail, Phone, User } from "lucide-react";
+import { ArrowLeft, Instagram, Mail, MessageSquareHeart, Phone, User } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import TraiteurQuiz from "./TraiteurQuiz";
 import TraiteurGallery from "./TraiteurGallery";
@@ -144,42 +144,54 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
         <TraiteurQuiz />
       </div>
 
-      {/* Contact */}
-      <section id="contact" className="py-20 px-6">
-        <div className="container mx-auto max-w-lg text-left">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="font-heading text-3xl font-bold text-foreground mb-4">Parlons de Votre Projet</h2>
-            <p className="font-body text-sm text-muted-foreground mb-8">
-              Traiteur sur mesure ou privatisation du food truck — contactez-nous pour discuter de votre événement.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a href="mailto:contact@therousel.be" className="flex items-center justify-center gap-2 bg-traiteur-forest text-traiteur-offwhite px-6 py-3 rounded-xl font-body text-sm font-semibold btn-bounce">
-                <Mail size={16} /> Nous Écrire
-              </a>
-              <button
-                onClick={() => navigate("/devis")}
-                className="flex items-center justify-center gap-2 border-2 border-traiteur-forest text-traiteur-forest px-6 py-3 rounded-xl font-body text-sm font-semibold btn-bounce hover:bg-traiteur-forest/5 transition-colors"
-              >
-                Demander un Devis
-              </button>
+      {/* Footer */}
+      <footer className="bg-traiteur-forest py-16 px-6">
+        <div className="container mx-auto max-w-6xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="border-b border-traiteur-offwhite/15 pb-12 mb-10"
+          >
+            <div className="max-w-3xl text-left">
+              <div className="flex items-center gap-2 mb-3">
+                <MessageSquareHeart size={18} className="text-traiteur-offwhite" />
+                <p className="font-body text-sm uppercase tracking-[0.3em] text-traiteur-olive">
+                  Parlons de votre projet
+                </p>
+              </div>
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-traiteur-offwhite mb-4">
+                Organisons un événement à votre image
+              </h2>
+              <p className="font-body text-sm md:text-base text-traiteur-offwhite/80 mb-8 max-w-2xl leading-relaxed">
+                Traiteur sur mesure ou privatisation du food truck : écrivez-nous pour imaginer ensemble une proposition adaptée à votre moment.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a href="mailto:contact@therousel.be" className="flex items-center justify-center gap-2 bg-traiteur-offwhite text-traiteur-forest px-6 py-3 rounded-xl font-body text-sm font-semibold btn-bounce hover:bg-traiteur-beige/90 transition-colors">
+                  <Mail size={16} /> Nous écrire
+                </a>
+                <button
+                  onClick={() => navigate("/devis")}
+                  className="flex items-center justify-center gap-2 border border-traiteur-offwhite/40 text-traiteur-offwhite px-6 py-3 rounded-xl font-body text-sm font-semibold btn-bounce hover:bg-traiteur-offwhite/10 transition-colors"
+                >
+                  Demander un devis
+                </button>
+              </div>
             </div>
           </motion.div>
-        </div>
-      </section>
 
-      {/* Footer */}
-      <footer className="bg-traiteur-forest py-12 px-6 text-center">
-        <img src={logoTraiteurBeige} alt="The K'rousel Traiteur" className="h-12 w-auto mx-auto mb-3" />
-        <p className="font-heading text-2xl font-bold text-traiteur-offwhite mb-2">THE K'ROUSEL</p>
-        <p className="font-body text-sm text-traiteur-offwhite/60">Traiteur & Privatisation Food Truck — Liège, Belgique</p>
-        <div className="flex items-center justify-center gap-4 mt-6">
+          <img src={logoTraiteurBeige} alt="The K'rousel Traiteur" className="h-12 w-auto mx-auto mb-3" />
+          <p className="font-heading text-2xl font-bold text-traiteur-offwhite text-center mb-2">THE K'ROUSEL</p>
+          <p className="font-body text-sm text-traiteur-offwhite/70 text-center">Traiteur & Privatisation Food Truck — Liège, Belgique</p>
+          <div className="flex items-center justify-center gap-4 mt-6">
           {[Instagram, Mail, Phone].map((Icon, i) => (
             <a key={i} href="#" className="w-9 h-9 rounded-full bg-traiteur-offwhite/10 flex items-center justify-center text-traiteur-offwhite/60 hover:text-traiteur-offwhite transition-colors">
               <Icon size={16} />
             </a>
           ))}
         </div>
-        <p className="font-body text-xs text-traiteur-offwhite/30 mt-6">© {new Date().getFullYear()} THE K'ROUSEL</p>
+          <p className="font-body text-xs text-traiteur-offwhite/30 text-center mt-6">© {new Date().getFullYear()} THE K'ROUSEL</p>
+        </div>
       </footer>
     </motion.div>
   );

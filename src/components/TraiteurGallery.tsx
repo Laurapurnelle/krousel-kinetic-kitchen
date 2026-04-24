@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { Camera, X } from "lucide-react";
 
 import mariageOutdoorImg from "@/assets/event-mariage-outdoor.jpg";
 import corporateCocktailImg from "@/assets/event-corporate-cocktail.jpg";
@@ -32,15 +32,18 @@ const TraiteurGallery = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-left mb-12"
         >
-          <p className="font-body text-sm uppercase tracking-[0.3em] text-traiteur-olive mb-3">
-            Nos Événements
-          </p>
+          <div className="flex items-center gap-2 mb-3">
+            <Camera size={18} className="text-traiteur-forest" />
+            <p className="font-body text-sm uppercase tracking-[0.3em] text-traiteur-olive">
+              Nos Événements
+            </p>
+          </div>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
             Ils Nous Ont Fait Confiance
           </h2>
-          <p className="font-body text-sm text-muted-foreground max-w-md mx-auto">
+          <p className="font-body text-sm text-muted-foreground max-w-md">
             Mariages, soirées corporate, fêtes privées & festivals — découvrez l'ambiance de nos prestations.
           </p>
         </motion.div>
