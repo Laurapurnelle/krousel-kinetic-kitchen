@@ -10,6 +10,8 @@ import Devis from "./pages/Devis.tsx";
 import Panier from "./pages/Panier.tsx";
 import Auth from "./pages/Auth.tsx";
 import Profil from "./pages/Profil.tsx";
+import Commande from "./pages/Commande.tsx";
+import MerciCommande from "./pages/MerciCommande.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -26,6 +28,8 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/devis" element={<Devis />} />
               <Route path="/panier" element={<Panier />} />
+              <Route path="/commande" element={<Commande />} />
+              <Route path="/commande/merci" element={<MerciCommande />} />
               <Route path="/auth" element={<Auth />} />
               <Route path="/profil" element={<Profil />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
