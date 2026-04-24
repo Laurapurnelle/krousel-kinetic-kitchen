@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Cloche, UtensilsCrossed, Sparkles } from "lucide-react";
+import { ChefHat, UtensilsCrossed, Sparkles } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 import plateauImg from "@/assets/traiteur-plateau-aperitif.jpg";
@@ -133,7 +133,7 @@ const TraiteurMenu = () => {
           className="text-left mb-10"
         >
           <div className="flex items-center gap-2 mb-3">
-            <Cloche size={18} className="text-traiteur-forest" />
+            <ChefHat size={18} className="text-traiteur-forest" />
             <p className="font-body text-sm uppercase tracking-[0.3em] text-traiteur-olive">
               Nos Spécialités
             </p>
