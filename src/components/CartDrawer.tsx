@@ -117,7 +117,10 @@ const CartDrawer = ({ triggerClassName, variant = "street" }: CartDrawerProps) =
           </div>
           <div className="flex flex-col gap-2 w-full">
             <Button asChild className="w-full" disabled={totalCount === 0}>
-              <Link to="/panier">Voir mon panier</Link>
+              <Link to="/commande">Passer commande</Link>
+            </Button>
+            <Button asChild variant="outline" className="w-full" disabled={totalCount === 0}>
+              <Link to="/panier">Voir le détail</Link>
             </Button>
             {items.length > 0 && (
               <Button

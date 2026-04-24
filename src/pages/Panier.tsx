@@ -114,9 +114,12 @@ const Panier = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button asChild className="flex-1">
+                  <Link to="/commande">Passer commande</Link>
+                </Button>
+                <Button asChild variant="outline" className="flex-1">
                   <Link to="/">Continuer mes achats</Link>
                 </Button>
-                <Button variant="outline" onClick={clear} className="flex-1">
+                <Button variant="ghost" onClick={clear} className="flex-1 text-muted-foreground">
                   Vider le panier
                 </Button>
               </div>
