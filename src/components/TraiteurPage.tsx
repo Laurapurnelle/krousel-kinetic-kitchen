@@ -11,7 +11,6 @@ import CartDrawer from "./CartDrawer";
 import { useAuth } from "@/context/AuthContext";
 import heroTraiteur from "@/assets/hero-traiteur.jpg";
 import logoTraiteurVert from "@/assets/logo-traiteur-vert-fonce.svg";
-import logoTraiteurBeige from "@/assets/logo-traiteur-beige.svg";
 
 interface TraiteurPageProps {
   onBack: () => void;
