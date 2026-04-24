@@ -47,26 +47,26 @@ const MerciDevis = () => {
             </h1>
             <p className="font-body text-base text-muted-foreground mb-8 max-w-lg mx-auto">
               Votre demande a bien été transmise à <span className="font-semibold text-traiteur-forest">Kassandra</span>.
-              Elle vous appellera personnellement sous 48h pour discuter de votre événement, puis vous enverra un devis sur mesure.
+              Vous recevrez ensuite par email le document à compléter pour le devis final, puis une réponse sous 48h après renvoi du formulaire rempli.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 text-left">
               <div className="rounded-2xl border border-traiteur-forest/15 bg-background/40 p-5">
                 <div className="flex items-center gap-2 mb-2">
                   <Phone size={18} className="text-traiteur-forest" />
-                  <p className="font-heading text-sm font-semibold text-traiteur-forest">Appel sous 48h</p>
+                  <p className="font-heading text-sm font-semibold text-traiteur-forest">Document envoyé par email</p>
                 </div>
                 <p className="font-body text-xs text-muted-foreground leading-relaxed">
-                  Kassandra vous téléphone pour cerner vos envies, puis vous envoie un devis personnalisé par email.
+                  Le document PDF à compléter vous est envoyé par email pour recueillir toutes les informations utiles.
                 </p>
               </div>
               <div className="rounded-2xl border border-traiteur-forest/15 bg-background/40 p-5">
                 <div className="flex items-center gap-2 mb-2">
                   <Mail size={18} className="text-traiteur-forest" />
-                  <p className="font-heading text-sm font-semibold text-traiteur-forest">Une question ?</p>
+                  <p className="font-heading text-sm font-semibold text-traiteur-forest">Réponse sous 48h</p>
                 </div>
                 <p className="font-body text-xs text-muted-foreground leading-relaxed">
-                  Écrivez directement à <a href="mailto:contact@therousel.be" className="underline underline-offset-2 hover:text-traiteur-forest">contact@therousel.be</a>
+                  Une fois le PDF complété renvoyé par email, notre retour vous parvient sous 48h. Besoin d'aide ? <a href="mailto:contact@therousel.be" className="underline underline-offset-2 hover:text-traiteur-forest">contact@therousel.be</a>
                 </p>
               </div>
             </div>
