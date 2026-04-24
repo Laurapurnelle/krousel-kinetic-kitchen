@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send, ArrowLeft } from "lucide-react";
 import { useNavigate, useSearchParams } from "react-router-dom";
@@ -87,22 +88,7 @@ const Devis = () => {
             transition={{ delay: 0.15 }}
             className="glass-card rounded-2xl p-6 md:p-8"
           >
-            {submitted ? (
-              <div className="text-center py-12">
-                <CheckCircle size={48} className="text-traiteur-forest mx-auto mb-4" />
-                <h3 className="font-heading text-2xl font-bold text-foreground mb-2">Demande Envoyée !</h3>
-                <p className="font-body text-sm text-muted-foreground mb-6">
-                  Merci pour votre intérêt. Kassandra vous recontactera dans les 48h pour discuter de votre projet.
-                </p>
-                <button
-                  onClick={() => { setSubmitted(false); setFormData({ name: "", email: "", phone: "", motif: "", guests: "", date: "", location: "", message: "" }); }}
-                  className="font-body text-sm text-traiteur-forest underline underline-offset-4 hover:text-traiteur-forest/80 transition-colors"
-                >
-                  Envoyer une autre demande
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-5">
                 {/* Motif du contact */}
                 <div>
                   <label className="font-body text-xs font-medium text-foreground mb-1.5 block">Motif du contact *</label>
@@ -219,8 +205,7 @@ const Devis = () => {
                   <Send size={16} />
                   Envoyer ma Demande
                 </motion.button>
-              </form>
-            )}
+            </form>
           </motion.div>
         </div>
       </div>
