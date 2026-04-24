@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Star, Quote } from "lucide-react";
+import { MessageCircleQuote, Star, Quote } from "lucide-react";
 
 import mariageImg from "@/assets/event-mariage-outdoor.jpg";
 import corporateImg from "@/assets/event-corporate-cocktail.jpg";
@@ -47,9 +47,12 @@ const ClientReviews = () => {
           viewport={{ once: true }}
           className="text-left mb-12"
         >
-          <p className="font-body text-sm uppercase tracking-[0.3em] text-traiteur-olive mb-3">
-            Témoignages
-          </p>
+          <div className="flex items-center gap-2 mb-3">
+            <MessageCircleQuote size={18} className="text-traiteur-forest" />
+            <p className="font-body text-sm uppercase tracking-[0.3em] text-traiteur-olive">
+              Témoignages
+            </p>
+          </div>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-3">
             Ce Que Nos Clients Disent
           </h2>
