@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, CheckCircle, ArrowLeft } from "lucide-react";
+import { Send, ArrowLeft } from "lucide-react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -36,7 +35,6 @@ const Devis = () => {
     location: "",
     message: "",
   });
-  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,8 +42,8 @@ const Devis = () => {
       toast.error("Veuillez remplir tous les champs obligatoires.");
       return;
     }
-    setSubmitted(true);
     toast.success("Demande envoyée ! Nous vous recontacterons rapidement.");
+    navigate("/devis/merci");
   };
 
   return (
