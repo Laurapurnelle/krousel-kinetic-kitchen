@@ -107,7 +107,8 @@ const TraiteurQuiz = () => {
           </p>
         </motion.div>
 
-        <div className="max-w-lg mx-auto">
+        <div className="max-w-5xl">
+          <div className="max-w-lg mx-auto">
           <AnimatePresence mode="wait">
             {!showResult ? (
               <motion.div
@@ -246,6 +247,7 @@ const TraiteurQuiz = () => {
               </motion.div>
             )}
           </AnimatePresence>
+          </div>
         </div>
       </div>
     </section>
