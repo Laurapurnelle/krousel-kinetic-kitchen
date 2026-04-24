@@ -11,6 +11,7 @@ import CartDrawer from "./CartDrawer";
 import { useAuth } from "@/context/AuthContext";
 import heroTraiteur from "@/assets/hero-traiteur.jpg";
 import logoTraiteurVert from "@/assets/logo-traiteur-vert-fonce.svg";
+import logoTraiteurBeige from "@/assets/logo-traiteur-beige.svg";
 
 interface TraiteurPageProps {
   onBack: () => void;
@@ -78,17 +79,6 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
               </p>
             </motion.div>
           </div>
-        </div>
-        {/* Logo at the junction — same treatment as the friterie page */}
-        <div className="flex justify-center -mt-16 md:-mt-20 relative z-10">
-          <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.5, type: "spring" }}
-            className="bg-traiteur-offwhite rounded-full w-28 h-28 md:w-32 md:h-32 flex items-center justify-center cinematic-shadow-lg p-5 ring-2 ring-traiteur-forest/10"
-          >
-            <img src={logoTraiteurVert} alt="The K'rousel Traiteur" className="w-full h-full object-contain" />
-          </motion.div>
         </div>
       </section>
 
@@ -167,7 +157,7 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
 
       {/* Footer */}
       <footer className="bg-traiteur-forest py-12 px-6 text-center">
-        <KMonogram variant="cream" size={40} className="mx-auto mb-3" />
+        <img src={logoTraiteurBeige} alt="The K'rousel Traiteur" className="h-12 w-auto mx-auto mb-3" />
         <p className="font-heading text-2xl font-bold text-traiteur-offwhite mb-2">THE K'ROUSEL</p>
         <p className="font-body text-sm text-traiteur-offwhite/60">Traiteur & Privatisation Food Truck — Liège, Belgique</p>
         <div className="flex items-center justify-center gap-4 mt-6">
