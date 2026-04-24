@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Heart, Building2, PartyPopper, TreePine, Sparkles, Palette, Beef, Leaf, Flame, ChevronRight, ChevronLeft, Award } from "lucide-react";
+import { Heart, Building2, PartyPopper, TreePine, Sparkles, Palette, Beef, Leaf, Flame, ChevronRight, ChevronLeft, Award, WandSparkles } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const quizSteps = [
@@ -91,15 +91,18 @@ const TraiteurQuiz = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-left mb-16"
         >
-          <p className="font-body text-sm uppercase tracking-[0.3em] text-traiteur-olive mb-3">
-            Traiteur Sur Mesure
-          </p>
+          <div className="flex items-center gap-2 mb-3">
+            <WandSparkles size={18} className="text-traiteur-forest" />
+            <p className="font-body text-sm uppercase tracking-[0.3em] text-traiteur-olive">
+              Traiteur Sur Mesure
+            </p>
+          </div>
           <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4">
             Votre Événement, Notre Passion
           </h2>
-          <p className="font-body text-base text-muted-foreground max-w-xl mx-auto">
+          <p className="font-body text-base text-muted-foreground max-w-xl">
             Répondez à trois questions et découvrez le menu qui correspond à votre vision.
           </p>
         </motion.div>
@@ -198,9 +201,12 @@ const TraiteurQuiz = () => {
                   <Award className="text-traiteur-forest" size={36} />
                 </motion.div>
 
-                <p className="font-body text-sm uppercase tracking-[0.3em] text-traiteur-olive mb-2">
-                  Votre Menu Idéal
-                </p>
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <Award size={16} className="text-traiteur-forest" />
+                  <p className="font-body text-sm uppercase tracking-[0.3em] text-traiteur-olive">
+                    Votre Menu Idéal
+                  </p>
+                </div>
                 <h3 className="font-heading text-3xl font-bold text-foreground mb-3">
                   {result.name}
                 </h3>
