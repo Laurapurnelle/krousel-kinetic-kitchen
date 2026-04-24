@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { CheckCircle, ArrowLeft, Mail, Clock } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import KMonogram from "@/components/KMonogram";
+import logoTraiteurVert from "@/assets/logo-traiteur-vert-fonce.svg";
 
 const MerciDevis = () => {
   const navigate = useNavigate();
@@ -18,10 +18,7 @@ const MerciDevis = () => {
             <ArrowLeft size={18} />
             Accueil
           </button>
-          <div className="flex items-center gap-2">
-            <KMonogram variant="dark" size={28} />
-            <span className="font-heading text-lg font-bold text-traiteur-forest">THE K'ROUSEL</span>
-          </div>
+          <img src={logoTraiteurVert} alt="The K'rousel Traiteur" className="h-8 w-auto" />
           <div className="w-16" />
         </div>
       </nav>

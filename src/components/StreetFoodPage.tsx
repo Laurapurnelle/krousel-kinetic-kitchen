@@ -3,7 +3,6 @@ import { MapPin, User } from "lucide-react";
 import { Link } from "react-router-dom";
 import LocationWidget from "./LocationWidget";
 import FriterieMenu from "./FriterieMenu";
-import KMonogram from "./KMonogram";
 import CartDrawer from "./CartDrawer";
 import heroStreet from "@/assets/hero-street.jpg";
 import logoBordeaux from "@/assets/logo-krousel-bordeaux.svg";
