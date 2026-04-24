@@ -1,8 +1,5 @@
 import { motion } from "framer-motion";
-import { ChevronDown, User } from "lucide-react";
-import { Link } from "react-router-dom";
-import CartDrawer from "./CartDrawer";
-import { useAuth } from "@/context/AuthContext";
+import { ChevronDown } from "lucide-react";
 
 import heroStreet from "@/assets/hero-street.jpg";
 import heroTraiteur from "@/assets/hero-traiteur.jpg";
@@ -14,7 +11,6 @@ interface SplitHeroProps {
 }
 
 const SplitHero = ({ onSelect }: SplitHeroProps) => {
-  const { user } = useAuth();
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -23,25 +19,6 @@ const SplitHero = ({ onSelect }: SplitHeroProps) => {
       transition={{ duration: 0.5 }}
       className="relative h-screen flex flex-col md:flex-row overflow-hidden"
     >
-      {/* Floating top-right actions: profile + cart, available on home as well */}
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.0, duration: 0.5 }}
-        className="absolute top-4 right-4 md:top-6 md:right-6 z-30 flex items-center gap-2"
-      >
-        <Link
-          to={user ? "/profil" : "/auth"}
-          aria-label={user ? "Mon profil" : "Se connecter"}
-          className="w-10 h-10 rounded-full bg-street-beige/90 hover:bg-street-beige backdrop-blur flex items-center justify-center transition-colors cinematic-shadow"
-        >
-          <User size={18} className="text-street-red-dark" />
-        </Link>
-        <CartDrawer
-          triggerClassName="relative flex items-center justify-center w-10 h-10 rounded-full bg-street-beige/90 hover:bg-street-beige backdrop-blur transition-colors cinematic-shadow"
-        />
-      </motion.div>
-
       {/* Street Food Side */}
       <motion.button
         onClick={() => onSelect("street")}
