@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Star, Plus, Minus, ChevronDown, Flame } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 
 import fritesImg from "@/assets/frites-cornet.jpg";
 import fricadelleImg from "@/assets/fricadelle.jpg";
@@ -203,14 +204,7 @@ const QtyControl = ({ qty, onAdd, onRemove }: { qty: number; onAdd: () => void; 
 
 const FriterieMenu = () => {
   const [activeCategory, setActiveCategory] = useState("tout");
-  const [orders, setOrders] = useState<Record<string, number>>({});
-
-  const addItem = (key: string) => setOrders((prev) => ({ ...prev, [key]: (prev[key] || 0) + 1 }));
-  const removeItem = (key: string) => setOrders((prev) => {
-    const n = (prev[key] || 0) - 1;
-    if (n <= 0) { const { [key]: _, ...rest } = prev; return rest; }
-    return { ...prev, [key]: n };
-  });
+  const { addItem, removeItem, getQty } = useCart();
 
   const visibleCategories = activeCategory === "tout"
     ? Object.keys(menuData)
@@ -323,8 +317,15 @@ const FriterieMenu = () => {
                               {item.price}
                             </span>
                             <QtyControl
-                              qty={orders[itemKey] || 0}
-                              onAdd={() => addItem(itemKey)}
+                              qty={getQty(itemKey)}
+                              onAdd={() =>
+                                addItem({
+                                  key: itemKey,
+                                  name: item.name,
+                                  price: item.price,
+                                  category: catId,
+                                })
+                              }
                               onRemove={() => removeItem(itemKey)}
                             />
                           </div>
