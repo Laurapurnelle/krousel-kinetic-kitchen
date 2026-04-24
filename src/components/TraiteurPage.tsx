@@ -6,7 +6,6 @@ import TraiteurGallery from "./TraiteurGallery";
 import TraiteurMenu from "./TraiteurMenu";
 import FoodTruckMenu from "./FoodTruckMenu";
 import ClientReviews from "./ClientReviews";
-import KMonogram from "./KMonogram";
 import CartDrawer from "./CartDrawer";
 import { useAuth } from "@/context/AuthContext";
 import heroTraiteur from "@/assets/hero-traiteur.jpg";
