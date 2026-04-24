@@ -50,13 +50,13 @@ const StreetFoodPage = ({ onBack }: StreetFoodPageProps) => {
             </motion.div>
           </div>
         </div>
-        {/* Logo at the junction */}
-        <div className="flex justify-center -mt-10 relative z-10">
+        {/* Logo at the junction — pulled higher to overlap the hero photo */}
+        <div className="flex justify-center -mt-16 md:-mt-20 relative z-10">
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.5, type: "spring" }}
-            className="bg-street-beige rounded-full w-24 h-24 flex items-center justify-center cinematic-shadow-lg p-4 ring-2 ring-primary/10"
+            className="bg-street-beige rounded-full w-28 h-28 md:w-32 md:h-32 flex items-center justify-center cinematic-shadow-lg p-5 ring-2 ring-primary/10"
           >
             <img src={logoBordeaux} alt="K'rousel" className="w-full h-full object-contain" />
           </motion.div>
