@@ -116,7 +116,7 @@ const SplitHero = ({ onSelect }: SplitHeroProps) => {
         <img
           src={logoKrouselTypo}
           alt="THE K'ROUSEL"
-          className="w-[70%] sm:w-[60%] md:w-[55%] lg:w-[45%] max-w-[640px] h-auto drop-shadow-[0_4px_20px_rgba(0,0,0,0.55)]"
+          className="w-[55%] sm:w-[50%] md:w-[55%] lg:w-[45%] max-w-[640px] h-auto drop-shadow-[0_4px_20px_rgba(0,0,0,0.55)]"
         />
       </motion.div>
 
