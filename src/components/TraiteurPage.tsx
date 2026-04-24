@@ -10,6 +10,7 @@ import KMonogram from "./KMonogram";
 import CartDrawer from "./CartDrawer";
 import { useAuth } from "@/context/AuthContext";
 import heroTraiteur from "@/assets/hero-traiteur.jpg";
+import logoTraiteurVert from "@/assets/logo-traiteur-vert-fonce.svg";
 
 interface TraiteurPageProps {
   onBack: () => void;
@@ -30,13 +31,9 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 glass-card-strong border-b-2 border-traiteur-forest/20">
         <div className="container mx-auto flex items-center justify-between px-6 py-3">
-          <button onClick={onBack} className="flex items-center gap-2 text-traiteur-forest font-body text-sm font-medium btn-bounce">
-            <KMonogram variant="dark" size={28} />
+          <button onClick={onBack} className="flex items-center gap-2 btn-bounce" aria-label="Retour à l'accueil">
+            <img src={logoTraiteurVert} alt="The K'rousel Traiteur" className="h-8 w-auto" />
           </button>
-          <div className="flex items-center gap-2">
-            <KMonogram variant="dark" size={28} />
-            <span className="font-heading text-lg font-bold text-traiteur-forest">THE K'ROUSEL</span>
-          </div>
           <div className="flex items-center gap-4">
             {[
               { label: "Réalisations", href: "#realisations" },
@@ -82,15 +79,15 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
             </motion.div>
           </div>
         </div>
-        {/* Logo at the junction */}
-        <div className="flex justify-center -mt-10 relative z-10">
+        {/* Logo at the junction — same treatment as the friterie page */}
+        <div className="flex justify-center -mt-16 md:-mt-20 relative z-10">
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.5, type: "spring" }}
-            className="bg-background/90 backdrop-blur-xl rounded-full w-20 h-20 flex items-center justify-center cinematic-shadow-lg"
+            className="bg-traiteur-offwhite rounded-full w-28 h-28 md:w-32 md:h-32 flex items-center justify-center cinematic-shadow-lg p-5 ring-2 ring-traiteur-forest/10"
           >
-            <KMonogram variant="dark" size={44} />
+            <img src={logoTraiteurVert} alt="The K'rousel Traiteur" className="w-full h-full object-contain" />
           </motion.div>
         </div>
       </section>

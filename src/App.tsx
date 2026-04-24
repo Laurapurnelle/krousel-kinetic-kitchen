@@ -7,6 +7,7 @@ import { CartProvider } from "@/context/CartContext";
 import { AuthProvider } from "@/context/AuthContext";
 import Index from "./pages/Index.tsx";
 import Devis from "./pages/Devis.tsx";
+import MerciDevis from "./pages/MerciDevis.tsx";
 import Panier from "./pages/Panier.tsx";
 import Auth from "./pages/Auth.tsx";
 import Profil from "./pages/Profil.tsx";
@@ -27,6 +28,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/devis" element={<Devis />} />
+              <Route path="/devis/merci" element={<MerciDevis />} />
               <Route path="/panier" element={<Panier />} />
               <Route path="/commande" element={<Commande />} />
               <Route path="/commande/merci" element={<MerciCommande />} />
