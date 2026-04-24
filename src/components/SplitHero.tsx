@@ -109,7 +109,11 @@ const SplitHero = ({ onSelect }: SplitHeroProps) => {
       </motion.button>
 
       <div
-        className="pointer-events-none absolute inset-x-0 top-1/2 z-10 h-28 -translate-y-1/2 bg-gradient-to-b from-street-red-dark/70 via-background/25 via-50% to-traiteur-forest/70 opacity-95 blur-3xl md:inset-y-0 md:left-1/2 md:top-0 md:h-auto md:w-44 md:-translate-x-1/2 md:translate-y-0 md:bg-gradient-to-r"
+        className="pointer-events-none absolute inset-x-0 top-[calc(50%-3rem)] z-10 h-24 bg-gradient-to-b from-street-red-dark/55 via-street-red-dark/30 to-transparent opacity-90 blur-3xl md:inset-y-0 md:left-[calc(50%-7rem)] md:top-0 md:h-auto md:w-52 md:bg-gradient-to-r"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute inset-x-0 top-[calc(50%+1rem)] z-10 h-24 bg-gradient-to-b from-transparent via-traiteur-forest/30 to-traiteur-forest/55 opacity-90 blur-3xl md:inset-y-0 md:left-[calc(50%+1rem)] md:top-0 md:h-auto md:w-52 md:bg-gradient-to-l"
         aria-hidden="true"
       />
 
