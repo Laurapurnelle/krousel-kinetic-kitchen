@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, Instagram, Mail, Phone } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { ArrowLeft, Instagram, Mail, Phone, User } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import TraiteurQuiz from "./TraiteurQuiz";
 import TraiteurGallery from "./TraiteurGallery";
 import TraiteurMenu from "./TraiteurMenu";
 import FoodTruckMenu from "./FoodTruckMenu";
 import ClientReviews from "./ClientReviews";
 import KMonogram from "./KMonogram";
+import CartDrawer from "./CartDrawer";
+import { useAuth } from "@/context/AuthContext";
 import heroTraiteur from "@/assets/hero-traiteur.jpg";
 
 interface TraiteurPageProps {
@@ -15,6 +17,7 @@ interface TraiteurPageProps {
 
 const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   return (
     <motion.div
@@ -34,7 +37,7 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
             <KMonogram variant="dark" size={28} />
             <span className="font-heading text-lg font-bold text-traiteur-forest">THE K'ROUSEL</span>
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4">
             {[
               { label: "Réalisations", href: "#realisations" },
               { label: "La Carte", href: "#notre-carte" },
@@ -52,6 +55,14 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
                 </a>
               )
             ))}
+            <Link
+              to={user ? "/profil" : "/auth"}
+              aria-label={user ? "Mon profil" : "Se connecter"}
+              className="w-10 h-10 rounded-full bg-muted/60 hover:bg-muted flex items-center justify-center transition-colors"
+            >
+              <User size={18} className="text-traiteur-forest" />
+            </Link>
+            <CartDrawer variant="traiteur" />
           </div>
         </div>
       </nav>
