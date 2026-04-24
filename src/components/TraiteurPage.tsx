@@ -96,7 +96,7 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
 
       {/* Concept */}
       <section id="le-concept" className="py-20 px-6">
-        <div className="container mx-auto max-w-3xl">
+        <div className="container mx-auto max-w-5xl">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-left mb-12">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">Notre Philosophie</h2>
             <p className="font-body text-base text-muted-foreground leading-relaxed">
@@ -146,7 +146,7 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
 
       {/* Footer */}
       <footer className="bg-traiteur-forest py-16 px-6">
-        <div className="container mx-auto max-w-6xl">
+        <div className="container mx-auto max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
