@@ -41,10 +41,10 @@ const StreetFoodPage = ({ onBack }: StreetFoodPageProps) => {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-street-red/25 to-transparent" />
           <div className="absolute inset-0 flex items-center justify-center">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="text-center">
-              <h1 className="font-heading text-4xl md:text-5xl font-bold text-white mb-2 drop-shadow-lg">
-                Friterie & Food Truck
+              <h1 className="font-heading text-4xl md:text-5xl font-semibold tracking-tight text-white mb-2 drop-shadow-lg">
+                Friterie et Food Truck
               </h1>
-              <p className="font-heading text-base italic text-white/90 drop-shadow-md">
+              <p className="font-body text-sm uppercase tracking-[0.25em] text-white/85 drop-shadow-md">
                 Made with love by Kassandra
               </p>
             </motion.div>
