@@ -19,6 +19,7 @@ interface CartDrawerProps {
 
 const CartDrawer = ({ triggerClassName, variant = "street" }: CartDrawerProps) => {
   const { items, totalCount, totalPrice, addItem, removeItem, setQty, clear } = useCart();
+  const returnTo = variant === "traiteur" ? "/?universe=traiteur" : "/?universe=street";
 
   const accentText = variant === "street" ? "text-primary" : "text-traiteur-forest";
 
@@ -120,7 +121,7 @@ const CartDrawer = ({ triggerClassName, variant = "street" }: CartDrawerProps) =
               <Link to="/commande">Passer commande</Link>
             </Button>
             <Button asChild variant="outline" className="w-full" disabled={totalCount === 0}>
-              <Link to="/panier">Voir le détail</Link>
+              <Link to={`/panier?from=${encodeURIComponent(returnTo)}`}>Voir le détail</Link>
             </Button>
             {items.length > 0 && (
               <Button
