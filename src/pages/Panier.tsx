@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ShoppingBag, Plus, Minus, Trash2, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,6 +9,9 @@ import logoBordeaux from "@/assets/logo-krousel-bordeaux.svg";
 const Panier = () => {
   const { items, totalCount, totalPrice, addItem, removeItem, setQty, clear } = useCart();
   const { user } = useAuth();
+  const [searchParams] = useSearchParams();
+  const returnTo = searchParams.get("from") || "/?universe=street";
+  const returnLabel = returnTo.includes("traiteur") ? "Retour à l'univers traiteur" : "Retour à la friterie";
 
   return (
     <motion.div
@@ -19,7 +22,7 @@ const Panier = () => {
     >
       <nav className="fixed top-0 left-0 right-0 z-50 glass-card-strong border-b-2 border-primary/20">
         <div className="container mx-auto flex items-center justify-between px-6 py-3">
-          <Link to="/" className="flex items-center gap-2 btn-bounce" aria-label="Retour à l'accueil">
+          <Link to={returnTo} className="flex items-center gap-2 btn-bounce" aria-label={returnLabel}>
             <img src={logoBordeaux} alt="K'rousel" className="h-8 w-auto" />
           </Link>
           <Link
@@ -33,7 +36,7 @@ const Panier = () => {
 
       <main className="container mx-auto pt-24 pb-16 px-6 max-w-3xl">
         <Link
-          to="/"
+          to={returnTo}
           className="inline-flex items-center gap-2 font-body text-sm text-muted-foreground hover:text-primary mb-6"
         >
           <ArrowLeft size={14} /> Continuer mes achats
@@ -53,7 +56,7 @@ const Panier = () => {
               Aucun plat sélectionné pour l'instant.
             </p>
             <Button asChild>
-              <Link to="/">Voir la carte</Link>
+              <Link to={returnTo}>Voir la carte</Link>
             </Button>
           </div>
         ) : (
@@ -114,10 +117,10 @@ const Panier = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button asChild className="flex-1">
-                  <Link to="/commande">Passer commande</Link>
+                  <Link to={`/commande?from=${encodeURIComponent(returnTo)}`}>Passer commande</Link>
                 </Button>
                 <Button asChild variant="outline" className="flex-1">
-                  <Link to="/">Continuer mes achats</Link>
+                  <Link to={returnTo}>Continuer mes achats</Link>
                 </Button>
                 <Button variant="ghost" onClick={clear} className="flex-1 text-muted-foreground">
                   Vider le panier
