@@ -20,6 +20,19 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
   const navigate = useNavigate();
   const { user } = useAuth();
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (!element) return;
+
+    const navbarOffset = 104;
+    const targetTop = element.getBoundingClientRect().top + window.scrollY - navbarOffset;
+
+    window.scrollTo({
+      top: targetTop,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, x: 60 }}
@@ -35,23 +48,23 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
             <img src={logoTraiteurVert} alt="The K'rousel Traiteur" className="h-8 w-auto" />
           </button>
           <div className="flex items-center gap-4">
-            {[
-              { label: "Réalisations", href: "#realisations" },
-              { label: "La Carte", href: "#notre-carte" },
-              { label: "Food Truck", href: "#food-truck-menu" },
-              { label: "Votre Menu", href: "#votre-menu" },
-              { label: "Devis", href: "/devis" },
-            ].map((l) => (
-              l.href.startsWith("/") ? (
-                <button key={l.href} onClick={() => navigate(l.href)} className="hidden md:block font-body text-sm text-muted-foreground hover:text-traiteur-forest transition-colors">
-                  {l.label}
+              {[
+                { label: "Réalisations", sectionId: "realisations" },
+                { label: "La Carte", sectionId: "notre-carte" },
+                { label: "Food Truck", sectionId: "food-truck-menu" },
+                { label: "Votre Menu", sectionId: "votre-menu" },
+              ].map((link) => (
+                <button
+                  key={link.sectionId}
+                  onClick={() => scrollToSection(link.sectionId)}
+                  className="hidden md:block font-body text-sm text-muted-foreground hover:text-traiteur-forest transition-colors"
+                >
+                  {link.label}
                 </button>
-              ) : (
-                <a key={l.href} href={l.href} className="hidden md:block font-body text-sm text-muted-foreground hover:text-traiteur-forest transition-colors">
-                  {l.label}
-                </a>
-              )
-            ))}
+              ))}
+              <button onClick={() => navigate("/devis")} className="hidden md:block font-body text-sm text-muted-foreground hover:text-traiteur-forest transition-colors">
+                Devis
+              </button>
             <Link
               to={user ? "/profil" : "/auth"}
               aria-label={user ? "Mon profil" : "Se connecter"}
@@ -122,12 +135,12 @@ const TraiteurPage = ({ onBack }: TraiteurPageProps) => {
       <TraiteurMenu />
 
       {/* Food Truck Menu */}
-      <div id="food-truck-menu">
+      <div id="food-truck-menu" className="scroll-mt-28">
         <FoodTruckMenu />
       </div>
 
       {/* Quiz */}
-      <div id="votre-menu">
+      <div id="votre-menu" className="scroll-mt-28">
         <TraiteurQuiz />
       </div>
 
