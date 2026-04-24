@@ -104,6 +104,11 @@ const SplitHero = ({ onSelect }: SplitHeroProps) => {
         </div>
       </motion.button>
 
+      <div
+        className="pointer-events-none absolute inset-x-0 top-1/2 z-10 h-16 -translate-y-1/2 bg-gradient-to-b from-street-red-dark/80 via-background/15 to-traiteur-forest/80 blur-2xl md:inset-y-0 md:left-1/2 md:top-0 md:h-auto md:w-24 md:-translate-x-1/2 md:translate-y-0 md:bg-gradient-to-r"
+        aria-hidden="true"
+      />
+
       {/* Centered "THE K'ROUSEL" wordmark on the split junction */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9, y: -10 }}
