@@ -28,8 +28,7 @@ const StreetFoodPage = ({ onBack }: StreetFoodPageProps) => {
           <button onClick={onBack} className="flex items-center gap-2 btn-bounce" aria-label="Retour à l'accueil">
             <img src={logoBordeaux} alt="K'rousel" className="h-8 w-auto" />
           </button>
-          <img src={logoTypo} alt="THE K'ROUSEL" className="h-6 w-auto hidden sm:block" />
-          <a href="#la-carte" className="hidden md:block font-body text-sm text-muted-foreground hover:text-primary transition-colors">
+          <a href="#la-carte" className="font-body text-sm text-muted-foreground hover:text-primary transition-colors">
             La Carte
           </a>
         </div>
