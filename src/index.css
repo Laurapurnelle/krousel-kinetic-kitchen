@@ -43,13 +43,13 @@
     --street-red-dark: 0 75% 30%;
     --street-cream: 42 65% 75%;
     --street-gold: 42 70% 58%;
-    --street-beige: 40 33% 94%;
+    --street-beige: 33 41% 88%;
 
     /* Traiteur palette (unchanged) */
     --traiteur-forest: 108 10% 14%;
     --traiteur-olive: 90 18% 56%;
-    --traiteur-offwhite: 15 10% 95%;
-    --traiteur-beige: 30 33% 89%;
+    --traiteur-offwhite: 33 41% 88%;
+    --traiteur-beige: 33 41% 88%;
 
     /* Glassmorphism */
     --glass-bg: 40 30% 96% / 0.6;
