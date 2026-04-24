@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, MapPin, ShoppingBag } from "lucide-react";
 import { z } from "zod";
@@ -45,8 +45,10 @@ const buildSchema = (requirePhone: boolean) =>
 
 const Commande = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const { items, totalCount, totalPrice } = useCart();
   const { user } = useAuth();
+  const returnTo = searchParams.get("from") || "/?universe=street";
 
   const requirePhone = !user;
   const schema = useMemo(() => buildSchema(requirePhone), [requirePhone]);
@@ -103,11 +105,11 @@ const Commande = () => {
     >
       <nav className="fixed top-0 left-0 right-0 z-50 glass-card-strong border-b-2 border-primary/20">
         <div className="container mx-auto flex items-center justify-between px-6 py-3">
-          <Link to="/" className="flex items-center gap-2 btn-bounce" aria-label="Retour à l'accueil">
+          <Link to={returnTo} className="flex items-center gap-2 btn-bounce" aria-label="Retour aux achats">
             <img src={logoBordeaux} alt="K'rousel" className="h-8 w-auto" />
           </Link>
           <Link
-            to="/panier"
+            to={`/panier?from=${encodeURIComponent(returnTo)}`}
             className="flex items-center gap-2 font-body text-sm text-muted-foreground hover:text-primary transition-colors"
           >
             <ShoppingBag size={16} /> Mon panier
@@ -117,7 +119,7 @@ const Commande = () => {
 
       <main className="container mx-auto pt-24 pb-16 px-6 max-w-2xl">
         <Link
-          to="/panier"
+          to={`/panier?from=${encodeURIComponent(returnTo)}`}
           className="inline-flex items-center gap-2 font-body text-sm text-muted-foreground hover:text-primary mb-6"
         >
           <ArrowLeft size={14} /> Retour au panier
@@ -135,7 +137,7 @@ const Commande = () => {
               Votre panier est vide.
             </p>
             <Button asChild>
-              <Link to="/">Voir la carte</Link>
+              <Link to={returnTo}>Voir la carte</Link>
             </Button>
           </div>
         ) : (
