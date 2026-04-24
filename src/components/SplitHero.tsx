@@ -35,6 +35,8 @@ const SplitHero = ({ onSelect }: SplitHeroProps) => {
         />
         <div className="absolute inset-0 bg-street-red-dark/55" />
         <div className="absolute inset-0 bg-gradient-to-t from-street-red-dark/90 via-street-red-dark/40 to-street-red-dark/30" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-[-2.5rem] z-10 h-24 bg-gradient-to-b from-transparent via-street-red-dark/50 to-street-red-dark/75 blur-3xl md:hidden" />
+        <div className="pointer-events-none absolute inset-y-0 right-[-4rem] z-10 hidden w-40 bg-gradient-to-r from-transparent via-street-red-dark/45 to-street-red-dark/75 blur-3xl md:block" />
         <div className="relative z-10 flex flex-col items-center justify-center h-full min-h-[50vh] md:min-h-screen p-8 text-center">
           <motion.div
             initial={{ y: 30, opacity: 0 }}
@@ -78,6 +80,8 @@ const SplitHero = ({ onSelect }: SplitHeroProps) => {
         />
         <div className="absolute inset-0 bg-traiteur-forest/55" />
         <div className="absolute inset-0 bg-gradient-to-t from-traiteur-forest/90 via-traiteur-forest/40 to-traiteur-forest/30" />
+        <div className="pointer-events-none absolute inset-x-0 top-[-2.5rem] z-10 h-24 bg-gradient-to-b from-traiteur-forest/75 via-traiteur-forest/50 to-transparent blur-3xl md:hidden" />
+        <div className="pointer-events-none absolute inset-y-0 left-[-4rem] z-10 hidden w-40 bg-gradient-to-r from-traiteur-forest/75 via-traiteur-forest/45 to-transparent blur-3xl md:block" />
         <div className="relative z-10 flex flex-col items-center justify-center h-full min-h-[50vh] md:min-h-screen p-8 text-center">
           <motion.div
             initial={{ y: 30, opacity: 0 }}
@@ -105,7 +109,7 @@ const SplitHero = ({ onSelect }: SplitHeroProps) => {
       </motion.button>
 
       <div
-        className="pointer-events-none absolute inset-x-0 top-1/2 z-10 h-16 -translate-y-1/2 bg-gradient-to-b from-street-red-dark/80 via-background/15 to-traiteur-forest/80 blur-2xl md:inset-y-0 md:left-1/2 md:top-0 md:h-auto md:w-24 md:-translate-x-1/2 md:translate-y-0 md:bg-gradient-to-r"
+        className="pointer-events-none absolute inset-x-0 top-1/2 z-10 h-28 -translate-y-1/2 bg-gradient-to-b from-street-red-dark/70 via-background/25 via-50% to-traiteur-forest/70 opacity-95 blur-3xl md:inset-y-0 md:left-1/2 md:top-0 md:h-auto md:w-44 md:-translate-x-1/2 md:translate-y-0 md:bg-gradient-to-r"
         aria-hidden="true"
       />
 
