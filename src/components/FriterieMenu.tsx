@@ -29,7 +29,7 @@ interface MenuItem {
   price: string;
   signature?: boolean;
   bestSeller?: boolean;
-  hasDropdown?: "viandes" | "sauces" | "saucesChaudes";
+  hasDropdown?: "viandes" | "sauces" | "saucesChaudes" | "saucesFroides";
 }
 
 interface OrderItem {
@@ -72,6 +72,19 @@ const saucesChaudesOptions = [
   { name: "Sauce Poivre", price: "1,50€" },
   { name: "Sauce Champignons", price: "1,50€" },
   { name: "Sauce Béarnaise chaude", price: "1,80€" },
+];
+
+const saucesFroidesOptions = [
+  { name: "Mayo maison", price: "1,20€" },
+  { name: "Andalouse", price: "1,20€" },
+  { name: "Samouraï", price: "1,20€" },
+  { name: "Américaine", price: "1,20€" },
+  { name: "Cocktail", price: "1,20€" },
+  { name: "Pickles", price: "1,20€" },
+  { name: "Brasil", price: "1,20€" },
+  { name: "Dallas", price: "1,20€" },
+  { name: "Tartare", price: "1,50€" },
+  { name: "Mayo Truffe", price: "1,80€" },
 ];
 
 const menuData: Record<string, { hero?: { image: string; title: string; subtitle: string }; items: MenuItem[] }> = {
@@ -142,19 +155,8 @@ const menuData: Record<string, { hero?: { image: string; title: string; subtitle
   sauces: {
     hero: { image: saucesImg, title: "Les Sauces", subtitle: "En Belgique, la sauce est une montagne sur les frites" },
     items: [
-      // Sauces froides — les classiques belges
-      { name: "Mayo maison", desc: "L'incontournable, onctueuse et bien jaune", price: "1,20€", signature: true },
-      { name: "Andalouse", desc: "Mayo, tomate, poivrons & épices — la star du fritkot", price: "1,20€", bestSeller: true },
-      { name: "Samouraï", desc: "Mayo relevée au piment, ça réveille", price: "1,20€" },
-      { name: "Américaine", desc: "Mayo, ketchup, oignons, cornichons hachés", price: "1,20€" },
-      { name: "Cocktail", desc: "Mayo + ketchup, le grand classique", price: "1,20€" },
-      { name: "Pickles", desc: "Moutarde douce, légumes croquants & curcuma", price: "1,20€" },
-      { name: "Brasil", desc: "Mayo, ananas, curry doux — fruitée & sucrée", price: "1,20€" },
-      { name: "Dallas", desc: "Mayo épicée façon barbecue mexicain", price: "1,20€" },
-      { name: "Tartare", desc: "Mayo, câpres, cornichons, fines herbes", price: "1,50€" },
-      { name: "Mayo Truffe", desc: "Notre sauce premium, parfum noble", price: "1,80€", signature: true },
-      // Sauces chaudes — au choix
-      { name: "Sauce chaude au choix", desc: "Bicky chaude, Lapin, Provençale, Curry, Brune, Poivre, Champignons…", price: "dès 1,50€", hasDropdown: "saucesChaudes" },
+      { name: "Sauce froide au choix", desc: "Mayo, Andalouse, Samouraï, Américaine, Cocktail, Pickles, Brasil, Dallas, Tartare, Mayo Truffe…", price: "dès 1,20€", hasDropdown: "saucesFroides" },
+      { name: "Sauce chaude au choix", desc: "Bicky chaude, Lapin (sirop de Liège), Provençale, Curry, Brune, Poivre, Champignons, Béarnaise…", price: "dès 1,50€", hasDropdown: "saucesChaudes" },
     ],
   },
   boissons: {
@@ -363,6 +365,12 @@ const FriterieMenu = () => {
                         {item.hasDropdown === "saucesChaudes" && (
                           <div className="mt-2">
                             <DropdownSelect label="Choisir votre sauce chaude" options={saucesChaudesOptions} />
+                          </div>
+                        )}
+
+                        {item.hasDropdown === "saucesFroides" && (
+                          <div className="mt-2">
+                            <DropdownSelect label="Choisir votre sauce froide" options={saucesFroidesOptions} />
                           </div>
                         )}
                       </motion.div>
