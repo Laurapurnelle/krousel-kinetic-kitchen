@@ -170,14 +170,27 @@ const menuData: Record<string, { hero?: { image: string; title: string; subtitle
 };
 
 // Dropdown component for mitraillettes
-const DropdownSelect = ({ label, options }: { label: string; options: { name: string; price: string }[] }) => {
+const DropdownSelect = ({
+  label,
+  options,
+  onOpenChange,
+}: {
+  label: string;
+  options: { name: string; price: string }[];
+  onOpenChange?: (open: boolean) => void;
+}) => {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
+
+  const setOpenAndNotify = (next: boolean) => {
+    setOpen(next);
+    onOpenChange?.(next);
+  };
 
   return (
     <div className="relative mt-2">
       <button
-        onClick={() => setOpen(!open)}
+        onClick={() => setOpenAndNotify(!open)}
         className="w-full flex items-center justify-between gap-2 bg-muted/60 rounded-lg px-3 py-2 font-body text-xs text-foreground transition-colors hover:bg-muted"
       >
         <span>{selected || label}</span>
@@ -194,7 +207,7 @@ const DropdownSelect = ({ label, options }: { label: string; options: { name: st
             {options.map((opt) => (
               <button
                 key={opt.name}
-                onClick={() => { setSelected(`${opt.name} — ${opt.price}`); setOpen(false); }}
+                onClick={() => { setSelected(`${opt.name} — ${opt.price}`); setOpenAndNotify(false); }}
                 className="w-full flex items-center justify-between px-3 py-2 font-body text-xs hover:bg-muted/60 transition-colors"
               >
                 <span className="text-foreground">{opt.name}</span>
