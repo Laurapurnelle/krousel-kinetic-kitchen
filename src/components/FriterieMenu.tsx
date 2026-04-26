@@ -100,7 +100,7 @@ const menuData: Record<string, { hero?: { image: string; title: string; subtitle
     hero: { image: fricadelleImg, title: "Les Viandes", subtitle: "Les classiques du fritkot belge" },
     items: [
       { name: "Fricadelle", desc: "Cylindre lisse, mélange porc-bœuf-poulet. L'icône.", price: "2,20€" },
-      { name: "Fricadelle Spéciale", desc: "Avec frites & sauce", price: "2,80€" },
+      { name: "Fricadelle Spéciale", desc: "Avec frites & sauce au choix", price: "2,80€", hasDropdown: "saucesFroides" },
       { name: "Fricadelle XXL", price: "5,50€" },
       { name: "Viandelle", desc: "Fricadelle enrobée de pâte croquante & chapelure", price: "2,40€" },
       { name: "Mexicano", desc: "Rectangle strié, viande épicée bœuf-porc", price: "3,20€" },
@@ -147,9 +147,9 @@ const menuData: Record<string, { hero?: { image: string; title: string; subtitle
   boulets: {
     hero: { image: bouletImg, title: "Les Boulets", subtitle: "Spécialité liégeoise, sauce au sirop de Liège" },
     items: [
-      { name: "Boulet Lapin ou Provençale", desc: "Sauce au choix", price: "3,20€" },
-      { name: "Assiette 1 pièce", desc: "Boulet + frites + salade", price: "10,50€" },
-      { name: "Assiette 2 pièces", desc: "Double boulet + frites + salade", price: "12,50€", bestSeller: true },
+      { name: "Boulet Lapin ou Provençale", desc: "Sauce chaude au choix", price: "3,20€", hasDropdown: "saucesChaudes" },
+      { name: "Assiette 1 pièce", desc: "Boulet + frites + salade — sauce chaude au choix", price: "10,50€", hasDropdown: "saucesChaudes" },
+      { name: "Assiette 2 pièces", desc: "Double boulet + frites + salade — sauce chaude au choix", price: "12,50€", bestSeller: true, hasDropdown: "saucesChaudes" },
     ],
   },
   sauces: {
@@ -358,7 +358,7 @@ const FriterieMenu = () => {
                         {item.hasDropdown === "viandes" && (
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
                             <DropdownSelect label="Choisir une viande" options={viandeOptions} />
-                            <DropdownSelect label="Choisir une sauce" options={sauceOptions} />
+                            <DropdownSelect label="Choisir une sauce" options={[...saucesFroidesOptions, ...saucesChaudesOptions]} />
                           </div>
                         )}
 
