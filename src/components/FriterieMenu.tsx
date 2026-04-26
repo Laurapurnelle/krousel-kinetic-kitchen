@@ -318,75 +318,16 @@ const FriterieMenu = () => {
                   {data.items.map((item, i) => {
                     const itemKey = `${catId}-${item.name}`;
                     return (
-                      <motion.div
+                      <MenuItemCard
                         key={item.name}
-                        initial={{ opacity: 0, x: -15 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: i * 0.04 }}
-                        className={`glass-card rounded-xl p-4 md:p-5 hover-lift ${
-                          item.signature ? "ring-2 ring-primary/30" : ""
-                        } ${item.bestSeller ? "ring-2 ring-street-gold/40" : ""}`}
-                      >
-                        <div className="flex items-start justify-between gap-4">
-                          <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-2 flex-wrap">
-                              <h4 className="font-heading text-base md:text-lg font-semibold text-foreground">
-                                {item.name}
-                              </h4>
-                              {item.signature && (
-                                <Star size={14} className="text-street-gold fill-street-gold flex-shrink-0" />
-                              )}
-                              {item.bestSeller && (
-                                <span className="flex items-center gap-1 bg-street-gold/15 text-street-gold px-2 py-0.5 rounded-full font-body text-[10px] font-bold uppercase tracking-wider">
-                                  <Flame size={10} /> Best-seller
-                                </span>
-                              )}
-                            </div>
-                            {item.desc && (
-                              <p className="font-body text-xs md:text-sm text-muted-foreground mt-0.5 leading-relaxed">
-                                {item.desc}
-                              </p>
-                            )}
-                          </div>
-                          <div className="flex items-center gap-3 flex-shrink-0">
-                            <span className="font-heading text-base md:text-lg font-bold text-primary whitespace-nowrap">
-                              {item.price}
-                            </span>
-                            <QtyControl
-                              qty={getQty(itemKey)}
-                              onAdd={() =>
-                                addItem({
-                                  key: itemKey,
-                                  name: item.name,
-                                  price: item.price,
-                                  category: catId,
-                                })
-                              }
-                              onRemove={() => removeItem(itemKey)}
-                            />
-                          </div>
-                        </div>
-
-                        {/* Dropdowns for mitraillette */}
-                        {item.hasDropdown === "viandes" && (
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
-                            <DropdownSelect label="Choisir une viande" options={viandeOptions} />
-                            <DropdownSelect label="Choisir une sauce" options={[...saucesFroidesOptions, ...saucesChaudesOptions]} />
-                          </div>
-                        )}
-
-                        {item.hasDropdown === "saucesChaudes" && (
-                          <div className="mt-2">
-                            <DropdownSelect label="Choisir votre sauce chaude" options={saucesChaudesOptions} />
-                          </div>
-                        )}
-
-                        {item.hasDropdown === "saucesFroides" && (
-                          <div className="mt-2">
-                            <DropdownSelect label="Choisir votre sauce froide" options={saucesFroidesOptions} />
-                          </div>
-                        )}
-                      </motion.div>
+                        item={item}
+                        index={i}
+                        catId={catId}
+                        itemKey={itemKey}
+                        addItem={addItem}
+                        removeItem={removeItem}
+                        getQty={getQty}
+                      />
                     );
                   })}
                 </div>
