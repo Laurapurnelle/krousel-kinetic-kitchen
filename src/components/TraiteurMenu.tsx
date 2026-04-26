@@ -182,15 +182,15 @@ const TraiteurMenu = () => {
                 transition={{ delay: i * 0.1 }}
                 className="glass-card rounded-2xl p-6 hover-lift flex flex-col"
               >
-                <div className="flex items-start justify-between mb-3">
-                  <div>
+                <div className="flex items-start justify-between gap-3 mb-3">
+                  <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
                       <Sparkles size={16} className="text-traiteur-forest" />
                       <h3 className="font-heading text-xl font-bold text-foreground">{formula.name}</h3>
                     </div>
                     <p className="font-body text-xs text-muted-foreground italic">{formula.tagline}</p>
                   </div>
-                  <span className="font-heading text-lg font-bold text-traiteur-forest whitespace-nowrap">{formula.price}</span>
+                  <span className="font-heading text-lg font-bold text-traiteur-forest whitespace-nowrap flex-shrink-0">{formula.price}</span>
                 </div>
                 <div className="space-y-2 flex-1 mb-4">
                   {formula.items.map((item, j) => (
