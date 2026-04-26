@@ -13,11 +13,11 @@ const LocationWidget = () => {
       transition={{ duration: 0.5 }}
       className="glass-card rounded-2xl p-6 md:p-8 max-w-lg mx-auto cinematic-shadow"
     >
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
         <h3 className="font-heading text-xl font-semibold text-foreground">
           Nous Trouver
         </h3>
-        <div className="flex items-center gap-3 bg-muted rounded-full p-1">
+        <div className="flex items-center gap-1 bg-muted rounded-full p-1 self-start sm:self-auto">
           <button
             onClick={() => setIsLive(true)}
             className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-body font-semibold uppercase tracking-wider transition-all duration-300 btn-bounce ${
