@@ -358,7 +358,7 @@ const FriterieMenu = () => {
                         {item.hasDropdown === "viandes" && (
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
                             <DropdownSelect label="Choisir une viande" options={viandeOptions} />
-                            <DropdownSelect label="Choisir une sauce" options={sauceOptions} />
+                            <DropdownSelect label="Choisir une sauce" options={[...saucesFroidesOptions, ...saucesChaudesOptions]} />
                           </div>
                         )}
 
