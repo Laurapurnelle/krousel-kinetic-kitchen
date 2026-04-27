@@ -1,0 +1,27 @@
+{
+  "name": "Mon Journal TDAH",
+  "short_name": "Journal 🍒",
+  "description": "Journal personnel ADHD-friendly — Planification douce, habitudes et brain dump",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FFF1EC",
+  "theme_color": "#E8889A",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icons/cherry.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/cherry-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["productivity", "lifestyle"],
+  "lang": "fr"
+}
